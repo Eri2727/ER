@@ -1,0 +1,37 @@
+
+<%- include('./layout.ejs') %>
+<link rel="stylesheet" type="text/css" href="./stylesheets/login.css" />
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<h1>Bem vindo, Encarregado de Educação!</h1>
+			<input type="username" placeholder="Username" />
+			<input type="password" placeholder="Password" />
+			<button>Entrar</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="#">
+			<h1>Bem vindo Docente!</h1>
+			<input type="username" placeholder="Username" />
+			<input type="password" placeholder="Password" />
+			<button>Entrar</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>É Docente?</h1>
+				<p></p>
+				<button class="ghost" id="signIn">Clique aqui!</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>É Encarregado de Educação?</h1>
+                <p></p>
+				<button class="ghost" id="signUp">Clique aqui!</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="./javascripts/auth.js"></script>
