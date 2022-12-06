@@ -8,4 +8,4 @@ User : joao - Pass : abc - Tipo : Docente
 
 User : maria - Pass : def - Tipo : Docente
 
-User : quim - Pass : ghi - Tipo : Docente
+User : quim - Pass : ghi - Tipo : Encarregado
