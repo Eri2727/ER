@@ -7,8 +7,13 @@ router.get('/', function(req, res, next) {
   console.log(req.session.cookie);
 });
 
-router.post('/login', passport.authenticate('local', {
-  successRedirect: '/homepage',
+router.post('/loginEE', passport.authenticate('loginEE', {
+  successRedirect: '/homepage/EE',
+  failureRedirect: '/'
+}));
+
+router.post('/loginD', passport.authenticate('loginD', {
+  successRedirect: '/homepage/D',
   failureRedirect: '/'
 }));
 

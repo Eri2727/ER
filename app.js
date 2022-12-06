@@ -84,7 +84,7 @@ const database = new sqlite3.Database('base_de_dados.sqlite3');
 
 database.close();
 
-passport.use(new LocalStrategy(function verify(username, password, callback) {
+passport.use('loginEE', new LocalStrategy(function verify(username, password, callback) {
   console.log("alo------------------------");
 	let database = new Database("base_de_dados.sqlite3", sqlite3.OPEN_READONLY);
 	database.get("SELECT * FROM users WHERE username = ?", [ username ], function(err, user) {
@@ -93,12 +93,46 @@ passport.use(new LocalStrategy(function verify(username, password, callback) {
       console.log('uh');
 			return callback(err);
 		}
+    if(user.type == "docente"){
+      console.log("uhhhh");
+			return callback(null, false, { message: 'Dados de login inválidos.' });
+    }
 		if(!user) {
       console.log("uhhhhhhhh");
 			return callback(null, false, { message: 'Dados de login inválidos.' });
 		}
 		if(password === user.password) {
-      console.log("very correct password");
+      console.log("very correct passwordEE");
+      sessionInfo.cookie.secure = true;
+      sessionInfo.cookie.user = user.username;
+      sessionInfo.cookie.type = user.type;
+		  return callback(null, user);
+		}
+		return callback(null, false, {message: 'Dados de login inválidos.'});
+	});
+  database.close();
+}));
+
+
+passport.use('loginD', new LocalStrategy(function verify(username, password, callback) {
+  console.log("alo------------------------");
+	let database = new Database("base_de_dados.sqlite3", sqlite3.OPEN_READONLY);
+	database.get("SELECT * FROM users WHERE username = ?", [ username ], function(err, user) {
+    console.log(user);
+    if(err) {
+      console.log('uh');
+			return callback(err);
+		}
+    if(user.type == "encarregado"){
+      console.log("uhhhh");
+			return callback(null, false, { message: 'Dados de login inválidos.' });
+    }
+		if(!user) {
+      console.log("uhhhhhhhh");
+			return callback(null, false, { message: 'Dados de login inválidos.' });
+		}
+		if(password === user.password) {
+      console.log("very correct passwordD");
       sessionInfo.cookie.secure = true;
       sessionInfo.cookie.user = user.username;
       sessionInfo.cookie.type = user.type;
