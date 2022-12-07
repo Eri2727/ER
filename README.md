@@ -6,8 +6,8 @@
 
 localhost:3000
 
-User : joao - Pass : abc - Tipo : Docente
+User : joao - Pass : 123 - Tipo : Docente
 
-User : maria - Pass : def - Tipo : Docente
+User : maria - Pass : 123 - Tipo : Docente
 
-User : quim - Pass : ghi - Tipo : Encarregado
+User : quim - Pass : 123 - Tipo : Encarregado
