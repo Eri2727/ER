@@ -25,4 +25,8 @@ router.post('/logout', function(req, res, next) {
   });
 });
 
+router.post('/backToTown',function(req, res, next) {
+  res.redirect('/');
+});
+
 module.exports = router;
