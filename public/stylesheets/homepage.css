@@ -1,32 +1,49 @@
-.logoutbtn{
-    position: absolute;
-    right: 10px;
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+.logoutbtn {
+
+    margin-left: 50%;
     width: 40px;
     height: 40px;
-    
+
 }
 
-.btnlog{
+.btnlog {
+    width: 50px;
+    height: 50px;
+    margin-left: 90%;
+    padding: 0;
+    border: none;
+    background: rgb(235, 192, 217);
+    border-radius: 20%;
+}
+
+.iconbtn {
     width: 40px;
     height: 40px;
-    right: 5px;
-    }
-
-.iconbtn{
-    width: 30px;
-    height: 30px;
-    right:5px;
 }
 
-.classblock{
-    width: 230px; 
-    height: 250px; 
-    background-color: red; 
-    border-radius: 5%; 
+.classblock {
+    width: 230px;
+    height: 230px;
+    background-color: rgb(177, 200, 248);
+    border-radius: 5%;
+    margin-left: 2%;
+    margin-top: 10%;
+    align-content: center;
+
 }
 
-.rowclasses{
-    color: 'white';
-    justify-content: "center";
-    gap: "20px";
+.rowclasses {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.classborder {
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 37%;
+    margin-top: 35%;
+    font-size: 40px;
+
 }

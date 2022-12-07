@@ -1,14 +1,14 @@
 
-$(document).ready(function() {
-    
+$(document).ready(function () {
+
     console.log('Document ready');
 
-    $('.fa-bars').click(function() {
+    $('.fa-bars').click(function () {
         $('.text-menu').toggleClass('menu-appear');
     });
 
-    $('nav .text-menu a').click(function() {
+    $('nav .text-menu a').click(function () {
         $('.text-menu').toggleClass('menu-appear');
     });
-    
+
 });

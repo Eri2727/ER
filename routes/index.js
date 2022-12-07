@@ -2,7 +2,7 @@ var express = require('express');
 const passport = require('passport');
 var router = express.Router();
 
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.render('login', { title: 'Express' });
   console.log(req.session.cookie);
 });
@@ -17,15 +17,15 @@ router.post('/loginD', passport.authenticate('loginD', {
   failureRedirect: '/'
 }));
 
-router.post('/logout', function(req, res, next) {
-  req.logout(function(err) {
+router.post('/logout', function (req, res, next) {
+  req.logout(function (err) {
     req.session.cookie.secure = false;
     if (err) { return next(err); }
     res.redirect('/');
   });
 });
 
-router.post('/backToTown',function(req, res, next) {
+router.post('/backToTown', function (req, res, next) {
   res.redirect('/');
 });
 
