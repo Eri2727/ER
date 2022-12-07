@@ -41,6 +41,8 @@ app.use(passport.initialize());
 app.use(passport.authenticate('session'));
 
 // view engine setup
+var path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -48,9 +50,6 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // app.use(cookieParser());
-
-var path = require('path');
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/homepage', homepageRouter);
@@ -75,15 +74,20 @@ app.use(function(err, req, res, next) {
 const sqlite3 = require('sqlite3').verbose();
 const database = new sqlite3.Database('base_de_dados.sqlite3');
 
-  database.serialize(() => {
-      database.run("CREATE TABLE IF NOT EXISTS users (username TEXT NOT NULL UNIQUE, password TEXT NOT NULL, type TEXT NOT NULL, PRIMARY KEY('username'))");
+database.serialize(() => {
+    database.run("CREATE TABLE IF NOT EXISTS users (username TEXT NOT NULL UNIQUE, password TEXT NOT NULL, type TEXT NOT NULL, PRIMARY KEY('username'))");
 
-      const insere_users_teste = database.prepare("INSERT INTO users VALUES (?,?,?)");
-      insere_users_teste.run("joao","abc","docente", function() {console.log("user already exists")});
-      insere_users_teste.run("maria","def","docente", function() {console.log("user already exists")});
-      insere_users_teste.run("quim","ghi","encarregado", function() {console.log("user already exists")});
-      insere_users_teste.finalize();
-  });
+    const insere_users_teste = database.prepare("INSERT INTO users VALUES (?,?,?)");
+    insere_users_teste.run("joao","123","docente", function() {console.log("user already exists")});
+    insere_users_teste.run("maria","123","docente", function() {console.log("user already exists")});
+    insere_users_teste.run("quim","123","encarregado", function() {console.log("user already exists")});
+    insere_users_teste.run("benji","123","encarregado", function() {console.log("user already exists")});
+    insere_users_teste.run("oliver","123","encarregado", function() {console.log("user already exists")});
+    insere_users_teste.run("stephanie","123","encarregado", function() {console.log("user already exists")});
+    insere_users_teste.run("catia","123","encarregado", function() {console.log("user already exists")});
+    insere_users_teste.run("marta","123","encarregado", function() {console.log("user already exists")});
+    insere_users_teste.finalize();
+});
 
 database.close();
 
@@ -96,14 +100,14 @@ passport.use('loginEE', new LocalStrategy(function verify(username, password, ca
       console.log('uh');
 			return callback(err);
 		}
-    if(user.type == "docente"){
-      console.log("uhhhh");
-			return callback(null, false, { message: 'Dados de login inválidos.' });
-    }
 		if(!user) {
       console.log("uhhhhhhhh");
 			return callback(null, false, { message: 'Dados de login inválidos.' });
 		}
+    if(user.type == "docente"){
+      console.log("uhhhh");
+			return callback(null, false, { message: 'Dados de login inválidos.' });
+    }
 		if(password === user.password) {
       console.log("very correct passwordEE");
       sessionInfo.cookie.secure = true;
@@ -126,14 +130,14 @@ passport.use('loginD', new LocalStrategy(function verify(username, password, cal
       console.log('uh');
 			return callback(err);
 		}
-    if(user.type == "encarregado"){
-      console.log("uhhhh");
-			return callback(null, false, { message: 'Dados de login inválidos.' });
-    }
 		if(!user) {
       console.log("uhhhhhhhh");
 			return callback(null, false, { message: 'Dados de login inválidos.' });
 		}
+    if(user.type == "encarregado"){
+      console.log("uhhhh");
+			return callback(null, false, { message: 'Dados de login inválidos.' });
+    }
 		if(password === user.password) {
       console.log("very correct passwordD");
       sessionInfo.cookie.secure = true;

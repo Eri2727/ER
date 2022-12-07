@@ -7,6 +7,8 @@ router.get('/', function (req, res, next) {
   console.log(req.session.cookie);
 });
 
+router.get('/favicon.ico', (req, res) => res.status(204));
+
 router.post('/loginEE', passport.authenticate('loginEE', {
   successRedirect: '/homepage/EE',
   failureRedirect: '/'
