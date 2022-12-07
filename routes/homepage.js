@@ -19,7 +19,7 @@ router.get('/EE', function(req, res, next) {
     if(req.session.cookie.secure == true){
         res.render('homepageEE', {title: 'Homepage'});
     } else { 
-    res.redirect('/');
+        res.redirect('/');
     }
 });
 
@@ -27,7 +27,7 @@ router.get('/D', function(req, res, next) {
     if(req.session.cookie.secure == true){
         res.render('homepageD', {title: 'Homepage'});
     } else { 
-    res.redirect('/');
+        res.redirect('/');
     }
 });
 

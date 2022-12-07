@@ -1,4 +1,5 @@
 <%- include('./layout.ejs') %>
+<<<<<<< Updated upstream
 
 <nav>
 
@@ -9,3 +10,62 @@
     <button style=" width:30px; height:30px; margin-right:5px ;" type="submit">LOGOUT</button>
 </form>
 
+=======
+<link rel="stylesheet" type="text/css" href="http://localhost:3000/stylesheets/homepage.css" />
+
+<nav>
+  <div class="row">
+    <div class="quarter">
+      <a href="#home">
+        <img src="http://baptistevillemur.fr/images/wolf-logo-blue.svg" alt="Logo Menu Baptiste Villemur">
+      </a>
+    </div>
+
+    <div class="rest">
+      <i class="fa fa-bars"></i>
+
+      <div class="text-menu">
+
+        <div>
+          <a href="#">Présentation</a>
+          <ul>
+            <li><a href="#">Etudes</a></li>
+            <li><a href="#">Expérience 
+              professionnelles</a></li>
+          </ul>
+        </div>
+
+        <span class="slash">/</span>
+
+        <div>
+          <a href="#">Compétences</a>
+          <ul>
+            <li><a href="#">Développement web</a></li>
+            <li><a href="#">Infographie</a></li>
+          </ul>
+        </div>
+
+        <span class="slash">/</span>
+
+        <div><a href="#">Portfolio</a></div>
+
+        <span class="slash">/</span>
+
+        <div>
+          <a href="#">Contact</a>
+          <ul>
+            <li><a href="#">Informations</a></li>
+            <li><a href="#">Formulaire</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+<h1>authenticated D moment</h1>
+<form action="/logout" method="post">
+    <button type="submit">LOGOUT</button>
+</form>
+>>>>>>> Stashed changes
