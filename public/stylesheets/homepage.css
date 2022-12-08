@@ -5,7 +5,7 @@
     margin-left: 50%;
     width: 40px;
     height: 40px;
-
+    cursor: pointer;
 }
 
 .btnlog {
@@ -21,6 +21,7 @@
 .iconbtn {
     width: 40px;
     height: 40px;
+    cursor: pointer;
 }
 
 .classblock {
@@ -31,6 +32,7 @@
     margin-left: 2%;
     margin-top: 10%;
     align-content: center;
+    cursor: pointer;
 
 }
 

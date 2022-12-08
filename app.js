@@ -21,6 +21,7 @@ var sessionInfo = {
   cookie: { user:'', type:'', secure:false }
 };
 
+
 app.use(session(sessionInfo));
 
 passport.serializeUser(function(user, cb) {
@@ -68,7 +69,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', {error:err} );
 });
 
 const sqlite3 = require('sqlite3').verbose();
