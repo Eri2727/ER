@@ -1,0 +1,55 @@
+.iconbtn {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 1%;
+    
+}
+
+.headerBar{
+    display: flex;
+    flex-direction: row;
+}
+
+.headerText{
+    font-size: 40px;
+    margin-top: 4px;
+    margin-left: 2%;
+}
+
+.btnUser{
+    margin-left: 20%;
+    align-items: center;
+    
+}
+
+.textUser{
+    font-size: 20px;
+    margin-left: 200px;
+    width: 800px;
+    align-items: center ;
+    background-color: rgb(255, 255, 255);
+}
+
+.spanUser{
+    
+    background-color: rgb(255, 255, 255);
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+}
+ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+  }
+  
+  ul li {
+    border: 1px solid rgb(80, 125, 185); /* Add a thin border to each list item */
+    margin-top: -1px; /* Prevent double borders */
+    background-color: #ffffff; /* Add a grey background color */
+    padding: 12px; /* Add some padding */
+    border-radius: 1%;
+
+  }

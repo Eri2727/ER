@@ -37,7 +37,7 @@ router.get('/D', function (req, res, next) {
 async function buscaAlunosDaTurmaX(turma_x) {
     let database = new Database("base_de_dados.sqlite3", sqlite3.OPEN_READONLY);
     return new Promise((resolve, reject) => {
-        database.all("SELECT nome_aluno, nome_ee FROM alunos WHERE turma = ?", [turma_x], function (err, alunos_list) {
+        database.all("SELECT id, nome_aluno, nome_ee FROM alunos WHERE turma = ?", [turma_x], function (err, alunos_list) {
             if (err) {
                 console.error("Erro ao procurar alunos", err);
                 database.close();
@@ -52,9 +52,9 @@ async function buscaAlunosDaTurmaX(turma_x) {
 
 };
 
-router.get('/D/alunos', async function (req, res, next) {
+router.get('/D/alunos/:turma', async function (req, res, next) {
     if (req.session.cookie.secure == true && req.session.cookie.type == 'docente') {
-        let alunos = buscaAlunosDaTurmaX(1).then(alunos => {
+        buscaAlunosDaTurmaX(req.params.turma).then(alunos => {
             console.log(alunos);
             res.render('alunos', { title: 'Alunos', alunos: alunos });
         });

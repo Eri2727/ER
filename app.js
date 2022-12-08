@@ -76,17 +76,17 @@ const sqlite3 = require('sqlite3').verbose();
 const database = new sqlite3.Database('base_de_dados.sqlite3');
 
 database.serialize(() => {
-    database.run("CREATE TABLE IF NOT EXISTS users (username TEXT NOT NULL UNIQUE, password TEXT NOT NULL, type TEXT NOT NULL, PRIMARY KEY('username'))");
+    database.run("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY , username TEXT NOT NULL UNIQUE, password TEXT NOT NULL, type TEXT NOT NULL)");
 
-    const insere_users_teste = database.prepare("INSERT INTO users VALUES (?,?,?)");
-    insere_users_teste.run("joao","123","docente", function() {console.log("user already exists")});
-    insere_users_teste.run("maria","123","docente", function() {console.log("user already exists")});
-    insere_users_teste.run("quim","123","encarregado", function() {console.log("user already exists")});
-    insere_users_teste.run("benji","123","encarregado", function() {console.log("user already exists")});
-    insere_users_teste.run("oliver","123","encarregado", function() {console.log("user already exists")});
-    insere_users_teste.run("stephanie","123","encarregado", function() {console.log("user already exists")});
-    insere_users_teste.run("catia","123","encarregado", function() {console.log("user already exists")});
-    insere_users_teste.run("marta","123","encarregado", function() {console.log("user already exists")});
+    const insere_users_teste = database.prepare("INSERT INTO users VALUES (?,?,?,?)");
+    insere_users_teste.run("1","joao","123","docente", function() {console.log("user already exists")});
+    insere_users_teste.run("2","maria","123","docente", function() {console.log("user already exists")});
+    insere_users_teste.run("3","quim","123","encarregado", function() {console.log("user already exists")});
+    insere_users_teste.run("4","benji","123","encarregado", function() {console.log("user already exists")});
+    insere_users_teste.run("5","oliver","123","encarregado", function() {console.log("user already exists")});
+    insere_users_teste.run("6","stephanie","123","encarregado", function() {console.log("user already exists")});
+    insere_users_teste.run("7","catia","123","encarregado", function() {console.log("user already exists")});
+    insere_users_teste.run("8","marta","123","encarregado", function() {console.log("user already exists")});
     insere_users_teste.finalize();
 });
 
