@@ -1,0 +1,36 @@
+<link rel="stylesheet" type="text/css" href="/stylesheets/relatorios.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<div class="headerBar">
+    <img class="iconbtn" src="/assets/goBack.png" onclick="history.back()" /> <!--UHHH isto devia dar redirect para turma ou para escolha de turmas?-->
+</div>
+
+<div class="logoutnbtn">
+    <form action="/logout" method="post">
+        <button class="btnlog" type="submit">
+            <img class="iconbtn" src="/assets/account.png" />
+        </button>
+    </form>
+</div>
+
+<p class="headerText">Lista de Relatórios acerca de <%= aluno %></p>
+
+<div class="newRelatorio">
+    <button type="button" class="btn btn-primary" onclick="window.location=window.location.href+'/new'">Criar novo relatório</button>
+</div>
+
+<ul>
+    <% relatorios.forEach(function (rel) { %>
+        <li>
+            <div class="spanRelatorio urgente<%= rel.urgente %>">
+                <h1 class="data">
+                    <%= rel.data %>
+                </h1>
+                <div class="relContent">
+                    <p><%= rel.comportamento %> - <%= rel.assiduidade %></p>
+                </div>
+            </div>
+        </li>
+    <% }) %>
+</ul>
