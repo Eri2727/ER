@@ -5,7 +5,7 @@
 
     <div class="headerBar">
         <div class="headerLeft">
-            <img class="backIcon" src="/assets/goBack.png" onclick="window.location='/homepage/D/1/alunos'" />
+            <img class="backIcon" src="/assets/goBack.png" onclick="window.history.back()" />
             </p>
         </div>
         <div>
@@ -19,12 +19,12 @@
 
 
 <div class="ContainerRelatorio">
-<form action="/submitRelatorio">
-
+<!-- <form action="/submitRelatorio"> -->
+<form method="post">
     <p class="formText">Comportamento</p>
 
     <div class="slidecontainer">
-        <input type="range" value="50" min="1" max="100" id="slideComportamento" oninput="this.nextElementSibling.value = this.value">
+        <input type="range" value="50" min="1" max="100" id="slideComportamento" name="slideComportamento" oninput="this.nextElementSibling.value = this.value">
         <output>50</output>
     </div>
 
@@ -35,7 +35,7 @@
     <p class="formText" >Assiduidade</p>
 
     <div class="slidecontainer">
-        <input type="range" value="50" min="1" max="100" id="slideAssiduidade" oninput="this.nextElementSibling.value = this.value">
+        <input type="range" value="50" min="1" max="100" id="slideAssiduidade" name="slideAssiduidade" oninput="this.nextElementSibling.value = this.value">
         <output>50</output>
     </div>
 
@@ -46,7 +46,7 @@
     <p class="formText" >Bem-estar</p>
 
     <div class="slidecontainer">
-        <input type="range" value="50" min="1" max="100" id="slideBemEstar" oninput="this.nextElementSibling.value = this.value">
+        <input type="range" value="50" min="1" max="100" id="slideBemEstar" name="slideBemEstar" oninput="this.nextElementSibling.value = this.value">
         <output>50</output>
     </div>
 
@@ -56,8 +56,8 @@
     
 
     <div class="submitRelatorio">
-        <button class="btnSubmit" type="submit"> Enviar </button>
-        <button class="btnSave" type="submit"> Save </button>
+        <button class="btnSubmit" type="submit" name="botao_modo" value="enviar"> Enviar </button>
+        <button class="btnSave" type="submit" name="botao_modo" value="guardar"> Save </button>
         <input class='btnUrgent' type="checkbox" id="urgente" name="urgente" value="true">
         <label for="urgente"> É Urgente</label><br>
     </div>

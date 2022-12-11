@@ -81,6 +81,22 @@ async function buscaAlunoX(aluno_x) {
     });
 }
 
+async function insereRelatorioNaDB(aluno_x, urgente, comportamento, slide_comp, assiduidade, slide_assi, bemestar, slide_bem) {
+    let database = new Database("base_de_dados.sqlite3", sqlite3.OPEN_READWRITE);
+    return new Promise((resolve, reject) => {
+        database.run('INSERT INTO relatorios(id_aluno, urgente, comportamento, comportamento_valor, assiduidade, assiduidade_valor, bem_estar, bem_estar_valor, data) VALUES(?,?,?,?,?,?,?,?,?)',
+        [aluno_x, urgente, comportamento, slide_comp, assiduidade, slide_assi, bemestar, slide_bem, new Date().toDateString()], function(err) {
+            if(err) {
+                console.error("Erro ao inserir na base de dados", err);
+                database.close();
+                reject(err);
+            }
+            database.close();
+            resolve();
+        })
+    })
+
+}
 
 router.get('/D/:turma/alunos', async function (req, res, next) {
     if (req.session.cookie.secure == true && req.session.cookie.type == 'docente') {
@@ -118,6 +134,15 @@ router.get('/D/:turma/:aluno/relatorios/new', async function(req, res, next) {
     }
 })
 
+router.post('/D/:turma/:aluno/relatorios/new', async function(req, res, next) {
+    if (req.session.cookie.secure == true && req.session.cookie.type == 'docente') {
+        //console.log('HI IM HERE NOTICE ME');
+        //console.log(req.body.DComportamento, req.body.slideComportamento, req.body.DAssiduidade, req.body.slideAssiduidade, req.body.DBemEstar, req.body.slideBemEstar, req.body.urgente, req.body.botao_modo);
+        //if(req.body.botao_modo == 'enviar') {}
+        insereRelatorioNaDB(req.params.aluno, req.body.urgente, req.body.DComportamento, req.body.slideComportamento, req.body.DAssiduidade, req.body.slideAssiduidade, req.body.DBemEstar, req.body.slideBemEstar);
+        res.redirect('/homepage/D/'+req.params.turma+'/'+req.params.aluno+'/relatorios');
+    }
+})
 /* router.get('/D/:turma/:aluno/mensagens', async function(req, res, next) {
     if (req.session.cookie.secure == true && req.session.cookie.type == 'docente') {
         buscaMensagensDoAlunoX(req.params.aluno).then(mensagens => {
