@@ -1,5 +1,7 @@
 var express = require('express');
 const passport = require('passport');
+const { Database } = require('sqlite3');
+const sqlite3 = require('sqlite3').verbose();
 var router = express.Router();
 
 router.get('/', function (req, res, next) {

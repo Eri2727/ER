@@ -5,7 +5,7 @@
 
 <div class="headerBar">
     <div class="headerLeft">
-        <img class="backIcon" src="/assets/goBack.png" onclick="window.location='/homepage/D/1/alunos'" />
+        <img class="backIcon" src="/assets/goBack.png" onclick="window.history.back()" />
         </p>
     </div>
     <div>
@@ -19,9 +19,9 @@
 
 
 <div class="ContainerRelatorio">
-    <form action="/submitRelatorio">
-        <div>
-            <p class="formText">Comportamento</p>
+<!-- <form action="/submitRelatorio"> -->
+<form method="post">
+    <p class="formText">Comportamento</p>
 
             <div class="slidecontainer">
                 <input type="range" value="50" min="1" max="100" id="slideComportamento"
@@ -81,12 +81,17 @@
         <textarea id="DFaltas" name="DFaltas" rows="4" cols="50"></textarea>
     </div>
 
-        <div class="submitRelatorio">
-            <button class="btnSubmit" type="submit"> Enviar </button>
-            <button class="btnSave" type="submit"> Save </button>
-            <input class='btnUrgent' type="checkbox" id="urgente" name="urgente" value="true">
-            <label for="urgente"> É Urgente</label><br>
-        </div>
+    <p><label for="DBemEstar">Descrição do bem-estar</label></p>
+    <textarea id="DBemEstar" name="DBemEstar" rows="4" cols="50"></textarea>
+    <br>
+    
 
-    </form>
+    <div class="submitRelatorio">
+        <button class="btnSubmit" type="submit"> Enviar </button>
+        <button class="btnSave" type="submit"> Save </button>
+        <input class='btnUrgent' type="checkbox" id="urgente" name="urgente" value="true">
+        <label for="urgente"> É Urgente</label><br>
+    </div>
+    
+</form>
 </div>

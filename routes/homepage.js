@@ -4,18 +4,6 @@ const { Database } = require('sqlite3');
 const router = express.Router();
 const sqlite3 = require('sqlite3').verbose();
 
-/* router.get('/', function(req, res, next) {
-    console.log(req.session);
-    if(req.session.cookie.secure == true && req.session.cookie.type == 'docente') {
-        res.render('homepageD', {title: 'Homepage'});
-    }
-    if(req.session.cookie.secure == true && req.session.cookie.type == 'encarregado') {
-        res.render('homepageEE', {title: 'Homepage'});
-    }
-    else {
-        res.redirect('/');
-    }
-}); */
 
 router.get('/EE', function (req, res, next) {
     if (req.session.cookie.secure == true && req.session.cookie.type == 'encarregado') {
@@ -81,6 +69,60 @@ async function buscaAlunoX(aluno_x) {
     });
 }
 
+async function insereRelatorioNaDB(aluno_x, urgente, comportamento, slide_comp, assiduidade, slide_assi, bemestar, slide_bem) {
+    let database = new Database("base_de_dados.sqlite3", sqlite3.OPEN_READWRITE);
+    //console.log(aluno_x, urgente, comportamento, slide_comp, assiduidade, slide_assi, bemestar, slide_bem);
+    return new Promise((resolve, reject) => {
+        if(urgente == null){
+            urgente = false;
+        }
+        database.run('INSERT INTO relatorios(id_aluno, urgente, comportamento, comportamento_valor, assiduidade, assiduidade_valor, bem_estar, bem_estar_valor, data) VALUES(?,?,?,?,?,?,?,?,?)',
+        [aluno_x, urgente, comportamento, slide_comp, assiduidade, slide_assi, bemestar, slide_bem, new Date().toDateString()], function(err) {
+            if(err) {
+                console.error("Erro ao inserir na base de dados", err);
+                database.close();
+                reject(err);
+            }
+            database.close();
+            resolve();
+        })
+    })
+
+}
+
+async function insereMensagemNaDB(aluno_x, docente_x, turma_x, mensagem_x) {
+    let database = new Database("base_de_dados.sqlite3", sqlite3.OPEN_READWRITE);
+    //console.log(aluno_x, urgente, comportamento, slide_comp, assiduidade, slide_assi, bemestar, slide_bem);
+    return new Promise((resolve, reject) => {
+        database.run('INSERT INTO mensagens(id_aluno, id_docente, id_turma, mensagem) VALUES(?,?,?,?)',
+        [aluno_x, docente_x, turma_x, mensagem_x], function(err) {
+            if(err) {
+                console.error("Erro ao inserir na base de dados", err);
+                database.close();
+                reject(err);
+            }
+            database.close();
+            resolve();
+        })
+    })
+
+}
+
+async function buscaMensagensNaDb(aluno_x, turma_x, docente_x) {
+    let database = new Database("base_de_dados.sqlite3", sqlite3.OPEN_READONLY);
+    return new Promise((resolve, reject) => {
+        database.all("SELECT id_aluno, id_docente, id_turma, mensagem FROM mensagens WHERE id_aluno = ? and id_docente = ? and id_turma = ?", [aluno_x, docente_x, turma_x], function (err, alunos_list) {
+            if (err) {
+                console.error("Erro ao procurar alunos", err);
+                database.close();
+                reject(err);
+            }
+            //console.log(alunos_list)
+            database.close();
+            resolve(alunos_list);
+        });
+    });
+};
 
 router.get('/D/:turma/alunos', async function (req, res, next) {
     if (req.session.cookie.secure == true && req.session.cookie.type == 'docente') {
@@ -112,21 +154,46 @@ router.get('/D/:turma/:aluno/relatorios', async function(req, res, next) {
     }
 })
 
+
 router.get('/D/:turma/:aluno/relatorios/new', async function(req, res, next) {
     if (req.session.cookie.secure == true && req.session.cookie.type == 'docente') {
         res.render('new_relatorio', { title: 'Novo Relatório', turma: req.params.turma, aluno: req.params.aluno});
-    }
-})
-
-/* router.get('/D/:turma/:aluno/mensagens', async function(req, res, next) {
-    if (req.session.cookie.secure == true && req.session.cookie.type == 'docente') {
-        buscaMensagensDoAlunoX(req.params.aluno).then(mensagens => {
-            //console.log(mensagens);
-            res.render('mensagens', { title: 'Mensagens', mensagens: mensagens });
-        })
     } else {
         res.redirect('/');
     }
-}) */
+})
+
+router.post('/D/:turma/:aluno/relatorios/new', async function(req, res, next) {
+    if (req.session.cookie.secure == true && req.session.cookie.type == 'docente') {
+        //console.log('HI IM HERE NOTICE ME');
+        //console.log(req.body.DComportamento, req.body.slideComportamento, req.body.DAssiduidade, req.body.slideAssiduidade, req.body.DBemEstar, req.body.slideBemEstar, req.body.urgente, req.body.botao_modo);
+        //if(req.body.botao_modo == 'enviar') {}
+        insereRelatorioNaDB(req.params.aluno, req.body.urgente, req.body.DComportamento, req.body.slideComportamento, req.body.DAssiduidade, req.body.slideAssiduidade, req.body.DBemEstar, req.body.slideBemEstar);
+        res.redirect('/homepage/D/'+req.params.turma+'/'+req.params.aluno+'/relatorios');
+    } else {
+        res.redirect('/');
+    }
+})
+
+router.get('/D/:turma/:aluno/mensagens', async function (req, res, next) {
+    if (req.session.cookie.secure == true && req.session.cookie.type == 'docente') {
+        buscaMensagensNaDb(req.params.aluno, req.params.turma, req.session.cookie.id).then(mensagens => {
+            console.log(mensagens);
+            res.render('mensagens', { title: 'Mensagens', mensagens: mensagens });
+        });
+    } else {
+        res.redirect('/');
+    }
+})
+
+router.post('/D/:turma/:aluno/mensagens', async function (req, res, next) {
+    if (req.session.cookie.secure == true && req.session.cookie.type == 'docente') {
+        console.log(req.session.cookie);
+        insereMensagemNaDB(req.params.aluno, req.session.cookie.id, req.params.turma, req.body.mensagem);
+        res.redirect('/homepage/D/'+req.params.turma+'/'+req.params.aluno+'/mensagens');
+    } else {
+        res.redirect('/');
+    }
+})
 
 module.exports = router;
