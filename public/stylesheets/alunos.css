@@ -2,41 +2,56 @@
     width: 40px;
     height: 40px;
     cursor: pointer;
-    margin-left: 10px;
-    margin-top: 1%;
-    
+
 }
 
-.logoutbtn {
-    margin-left: 50%;
+.backIcon{
     width: 40px;
     height: 40px;
     cursor: pointer;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.logoutbtn {
+   
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    
+}
+
+.headerLeft{
+    display: flex;
+    gap:10px;
+
 }
 
 .btnlog {
     width: 50px;
     height: 50px;
-    margin-left: 90%;
     padding: 0;
     border: none;
     background: rgb(235, 192, 217);
     border-radius: 20%;
+    margin-top: 10px;
+
 }
 
 .headerBar{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10px;
 }
 
 .headerText{
-    font-size: 40px;
-    margin-top: 4px;
-    margin-left: 2%;
+    font-size: 28px;
+    margin-top: 15px;
 }
 
 .btnUser{
-    margin-left: 20%;
+    margin-left: 10%;
     align-items: center;
     
 }

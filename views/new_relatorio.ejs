@@ -1,24 +1,27 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/relatorios.css" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/alunos.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<div class="headerBar">
-    <img class="iconbtn" src="/assets/goBack.png" onclick="history.back()" />
-</div>
+    <div class="headerBar">
+        <div class="headerLeft">
+            <img class="backIcon" src="/assets/goBack.png" onclick="window.location='/homepage/D/1/alunos'" />
+            </p>
+        </div>
+        <div>
+            <form action="/logout" method="post">
+                <button class="btnlog" type="submit">
+                    <img class="iconbtn" src="/assets/account.png" />
+                </button>
+            </form>
+        </div>
+    </div>
 
-<div class="logoutnbtn">
-    <form action="/logout" method="post">
-        <button class="btnlog" type="submit">
-            <img class="iconbtn" src="/assets/account.png" />
-        </button>
-    </form>
-</div>
 
-
-
+<div class="ContainerRelatorio">
 <form action="/submitRelatorio">
 
-    <h1>Comportamento</h1>
+    <p class="formText">Comportamento</p>
 
     <div class="slidecontainer">
         <input type="range" value="50" min="1" max="100" id="slideComportamento" oninput="this.nextElementSibling.value = this.value">
@@ -29,7 +32,7 @@
     <textarea id="DComportamento" name="DComportamento" rows="4" cols="50"></textarea>
     <br>
 
-    <h1>Assiduidade</h1>
+    <p class="formText" >Assiduidade</p>
 
     <div class="slidecontainer">
         <input type="range" value="50" min="1" max="100" id="slideAssiduidade" oninput="this.nextElementSibling.value = this.value">
@@ -40,7 +43,17 @@
     <textarea id="DAssiduidade" name="DAssiduidade" rows="4" cols="50"></textarea>
     <br>
 
-    <p></p>
+    <p class="formText" >Bem-estar</p>
+
+    <div class="slidecontainer">
+        <input type="range" value="50" min="1" max="100" id="slideBemEstar" oninput="this.nextElementSibling.value = this.value">
+        <output>50</output>
+    </div>
+
+    <p><label for="DBemEstar">Descrição do bem-estar</label></p>
+    <textarea id="DBemEstar" name="DBemEstar" rows="4" cols="50"></textarea>
+    <br>
+    
 
     <div class="submitRelatorio">
         <button class="btnSubmit" type="submit"> Enviar </button>
@@ -50,4 +63,4 @@
     </div>
     
 </form>
-
+</div>

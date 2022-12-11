@@ -4,18 +4,19 @@
 
 
 <div class="headerBar">
-    <img class="iconbtn" src="/assets/goBack.png" onclick="window.location='/homepage/D'" />
-    <p class="headerText">Lista de Alunos</p>
-</div>
+    <div class="headerLeft">
+        <img class="backIcon" src="/assets/goBack.png" onclick="window.location='/homepage/D'" />
+        <p class="headerText">Lista de Alunos</p>
+    </div>
 
-<div class="logoutnbtn">
-    <form action="/logout" method="post">
-        <button class="btnlog" type="submit">
-            <img class="iconbtn" src="/assets/account.png" />
-        </button>
-    </form>
+    <div>
+        <form action="/logout" method="post">
+            <button class="btnlog" type="submit">
+                <img class="iconbtn" src="/assets/account.png" />
+            </button>
+        </form>
+    </div>
 </div>
-
 <ul>
     <% alunos.forEach(function (user) { %>
         <li>
@@ -24,8 +25,10 @@
                     <%= user.nome_aluno %> - <%= user.nome_ee %>
                 </h1>
                 <div class="btnUser">
-                    <button type="button" class="btn btn-primary" onclick="window.location='/homepage/D/<%= turma %>/<%= user.id %>/relatorios'">Relatórios</button>
-                    <button type="button" class="btn btn-primary" onclick="window.location='/homepage/D/<%= turma %>/<%= user.id %>/mensagens'">Mensagens</button>
+                    <button type="button" class="btn btn-primary"
+                        onclick="window.location='/homepage/D/<%= turma %>/<%= user.id %>/relatorios'">Relatórios</button>
+                    <button type="button" class="btn btn-primary"
+                        onclick="window.location='/homepage/D/<%= turma %>/<%= user.id %>/mensagens'">Mensagens</button>
                 </div>
             </div>
         </li>
