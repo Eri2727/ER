@@ -1,5 +1,7 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/relatorios.css" />
 <link rel="stylesheet" type="text/css" href="/stylesheets/alunos.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script defer src="/javascripts/sendRelatorio.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -19,20 +21,20 @@
 
 
 <div class="ContainerRelatorio">
-<!-- <form action="/submitRelatorio"> -->
-<form method="post">
-    <p class="formText">Comportamento</p>
+    <!-- <form action="/submitRelatorio"> -->
+    <form method="post">
+        <p class="formText">Comportamento</p>
 
-            <div class="slidecontainer">
-                <input type="range" value="50" min="1" max="100" id="slideComportamento"
-                    oninput="this.nextElementSibling.value = this.value" class="slider">
-                <output>50</output>
-            </div>
-            <label for="DComportamento" id="titleComportamento">Informação geral</label>
-            <input id="DComportamento" name="DComportamento" class="form-control input-sm"></input> </br>
-            <p><label for="DComportamento">Detalhes do comportamento</label></p>
-            <textarea id="DComportamento" name="DComportamento" rows="4" cols="50"></textarea>
+        <div class="slidecontainer">
+            <input type="range" value="50" min="1" max="100" id="slideComportamento"
+                oninput="this.nextElementSibling.value = this.value" class="slider">
+            <output>50</output>
         </div>
+        <label for="DComportamento" id="titleComportamento">Informação geral</label>
+        <input id="DComportamento" name="DComportamento" class="form-control input-sm"></input> </br>
+        <p><label for="DComportamento">Detalhes do comportamento</label></p>
+        <textarea id="DComportamento" name="DComportamento" rows="4" cols="50"></textarea>
+
 
         <br>
         <br>
@@ -79,19 +81,20 @@
         <input id="DFaltas" name="DFaltas" class="form-control input-sm"></input> </br>
         <p><label for="DFaltas">Detalhes das faltas de material</label></p>
         <textarea id="DFaltas" name="DFaltas" rows="4" cols="50"></textarea>
-    </div>
 
-    <p><label for="DBemEstar">Descrição do bem-estar</label></p>
-    <textarea id="DBemEstar" name="DBemEstar" rows="4" cols="50"></textarea>
-    <br>
-    
 
-    <div class="submitRelatorio">
-        <button class="btnSubmit" type="submit"> Enviar </button>
-        <button class="btnSave" type="submit"> Save </button>
-        <input class='btnUrgent' type="checkbox" id="urgente" name="urgente" value="true">
-        <label for="urgente"> É Urgente</label><br>
-    </div>
-    
-</form>
+
+
+
+        <div class="submitRelatorio">
+            <div class="form-check">
+                <input class='form-check-input' type="checkbox" id="urgente" name="urgente" value="true">
+                <label class="form-check-label" for="urgente"> É urgente?</label><br>
+            </div>
+            <button class="btn btn-primary" type="submit" id="sendRelatorio"> Enviar </button>
+            <button class="btn btn-primary" type="submit"> Save </button>
+        </div>
+
+    </form>
+    <p class="urgentMessage">Caso não seja dado como urgente este relatório será enviado automáticamente na próxima sexta-feira.</p>
 </div>
