@@ -6,6 +6,7 @@
     margin: 0 auto;
     width: fit-content;
     margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 
@@ -50,3 +51,51 @@
 .formText {
     font-size: 28px;
 }
+
+.historyText{
+    font-size: 24px;
+    margin-left: 70px;
+}
+
+
+.slidecontainer {
+    width: 100%;
+  }
+  
+  .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    background: #fdfcfc;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    
+  }
+  
+  .slider:hover {
+    opacity: 1;
+    
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 25px;
+    background: #f9f9f9;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 15px;
+    height: 25px;
+    background: #5078de;
+    cursor: pointer;
+    padding: 0;
+    border: 0;
+    border-radius: 5px;
+  }
+
+  

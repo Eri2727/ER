@@ -13,7 +13,7 @@
     <div>
         <form action="/logout" method="post">
             <button class="btnlog" type="submit">
-                <img class="iconbtn" src="/assets/account.png" />
+                <img class="iconbtn" src="/assets/logout.png" />
             </button>
         </form>
     </div>
@@ -25,7 +25,9 @@
         relatório</button>
 </div>
 
+<p class="historyText">Histórico de Relatórios</p>
 <ul>
+   
     <% relatorios.forEach(function (rel) { %>
         <li>
             <div class="spanRelatorio urgente<%= rel.urgente %>">
