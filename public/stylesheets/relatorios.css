@@ -1,10 +1,8 @@
-
-
 .urgentetrue {
     background-color: rgb(237, 84, 33);
 }
 
-.newRelatorio{
+.newRelatorio {
     margin: 0 auto;
     width: fit-content;
     margin-top: 15px;
@@ -38,12 +36,17 @@
 
 /*form relatorio*/
 
-.ContainerRelatorio{
+.ContainerRelatorio {
     margin: 0 auto;
-    width: fit-content;
-    background-color: pink;
+    width: 1000px;
+    background-color: rgb(215, 211, 240);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-.formText{
+.formText {
     font-size: 28px;
 }
