@@ -18,7 +18,7 @@ var sessionInfo = {
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false,
-  cookie: { user:'', type:'', secure:false }
+  cookie: { user:'', type:'', id:'', secure:false }
 };
 
 
@@ -144,6 +144,7 @@ passport.use('loginD', new LocalStrategy(function verify(username, password, cal
       sessionInfo.cookie.secure = true;
       sessionInfo.cookie.user = user.username;
       sessionInfo.cookie.type = user.type;
+      sessionInfo.cookie.id = user.id;
 		  return callback(null, user);
 		}
 		return callback(null, false, {message: 'Dados de login inválidos.'});
