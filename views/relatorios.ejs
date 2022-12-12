@@ -27,18 +27,13 @@
 
 <p class="historyText">Histórico de Relatórios</p>
 <ul>
-   
+
     <% relatorios.forEach(function (rel) { %>
         <li>
             <div class="spanRelatorio urgente<%= rel.urgente %>">
-                <h1 class="data">
+                <button class="data" onclick="window.location=window.location.href + '/<%= rel.id%>'">
                     <%= rel.data %>
-                </h1>
-                <div class="relContent">
-                    <p>
-                        <%= rel.comportamento %> - <%= rel.assiduidade %>
-                    </p>
-                </div>
+                </button>
             </div>
         </li>
         <% }) %>

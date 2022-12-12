@@ -1,0 +1,82 @@
+<link rel="stylesheet" type="text/css" href="/stylesheets/alunos.css" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/relatorios.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<div class="headerBar">
+    <div class="headerLeft">
+        <img class="backIcon" src="/assets/goBack.png" onclick="window.history.back()" />
+        <p class="headerText"> Detalhes do Relatório</p>
+    </div>
+    <div>
+        <form action="/logout" method="post">
+            <button class="btnlog" type="submit">
+                <img class="iconbtn" src="/assets/logout.png" />
+
+            </button>
+        </form>
+    </div>
+</div>
+<div class="ContainerShowRelatorio">
+    <div class="ContainerRelatorio">
+        <!-- <form action="/submitRelatorio"> -->
+        <p class="formText">Comportamento</p>
+
+        <p> Perceção Geral: <%= relatorio.comportamento_valor %></p>
+        <p> Informação Geral: <%= relatorio.comportamento %></p>
+        <p> Detalhes: <%= relatorio.comportamento_detalhes %></p>
+
+    </div>
+
+    <div class="ContainerRelatorio">
+        <!-- <form action="/submitRelatorio"> -->
+        <p class="formText">Assiduidade</p>
+
+        <p> Perceção Geral: <%= relatorio.assiduidade_valor %></p>
+        <p> Perceção Geral: <%= relatorio.assiduidade %></p>
+        <p> Perceção Geral: <%= relatorio.assiduidade_detalhes %></p>
+
+    </div>
+    <div class="ContainerRelatorio">
+        <!-- <form action="/submitRelatorio"> -->
+        <p class="formText">Bem-Estar</p>
+
+        <p> Perceção Geral: <%= relatorio.bem_estar_valor %>
+        </p>
+
+    </div>
+    <div class="ContainerRelatorio">
+        <!-- <form action="/submitRelatorio"> -->
+        <p class="formText">Faltas de Material</p>
+
+        <p> Perceção Geral: <%= relatorio.comportamento_valor %>
+        </p>
+
+    </div>
+    <div class="ContainerRelatorio">
+        <!-- <form action="/submitRelatorio"> -->
+        <p class="formText">Avaliações</p>
+
+        <p> Perceção Geral: <%= relatorio.comportamento_valor %>
+        </p>
+
+    </div>
+    <div class="ContainerRelatorio">
+        <!-- <form action="/submitRelatorio"> -->
+        <p class="formText">Visitas de Estudo</p>
+
+        <p> Perceção Geral: <%= relatorio.comportamento_valor %>
+        </p>
+
+    </div>
+    <div class="ContainerRelatorio">
+        <!-- <form action="/submitRelatorio"> -->
+        <p class="formText">Reuniões</p>
+
+        <p> Perceção Geral: <%= relatorio.comportamento_valor %>
+        </p>
+
+    </div>
+</div>
+<br>
+<br>

@@ -73,19 +73,19 @@ async function insereRelatorioNaDB(aluno_x, urgente, comportamento, slide_comp, 
     let database = new Database("base_de_dados.sqlite3", sqlite3.OPEN_READWRITE);
     //console.log(aluno_x, urgente, comportamento, slide_comp, assiduidade, slide_assi, bemestar, slide_bem);
     return new Promise((resolve, reject) => {
-        if(urgente == null){
+        if (urgente == null) {
             urgente = false;
         }
         database.run('INSERT INTO relatorios(id_aluno, urgente, comportamento, comportamento_valor, assiduidade, assiduidade_valor, bem_estar, bem_estar_valor, data) VALUES(?,?,?,?,?,?,?,?,?)',
-        [aluno_x, urgente, comportamento, slide_comp, assiduidade, slide_assi, bemestar, slide_bem, new Date().toDateString()], function(err) {
-            if(err) {
-                console.error("Erro ao inserir na base de dados", err);
+            [aluno_x, urgente, comportamento, slide_comp, assiduidade, slide_assi, bemestar, slide_bem, new Date().toDateString()], function (err) {
+                if (err) {
+                    console.error("Erro ao inserir na base de dados", err);
+                    database.close();
+                    reject(err);
+                }
                 database.close();
-                reject(err);
-            }
-            database.close();
-            resolve();
-        })
+                resolve();
+            })
     })
 
 }
@@ -95,15 +95,15 @@ async function insereMensagemNaDB(aluno_x, docente_x, turma_x, mensagem_x) {
     //console.log(aluno_x, urgente, comportamento, slide_comp, assiduidade, slide_assi, bemestar, slide_bem);
     return new Promise((resolve, reject) => {
         database.run('INSERT INTO mensagens(id_aluno, id_docente, id_turma, mensagem) VALUES(?,?,?,?)',
-        [aluno_x, docente_x, turma_x, mensagem_x], function(err) {
-            if(err) {
-                console.error("Erro ao inserir na base de dados", err);
+            [aluno_x, docente_x, turma_x, mensagem_x], function (err) {
+                if (err) {
+                    console.error("Erro ao inserir na base de dados", err);
+                    database.close();
+                    reject(err);
+                }
                 database.close();
-                reject(err);
-            }
-            database.close();
-            resolve();
-        })
+                resolve();
+            })
     })
 
 }
@@ -124,6 +124,23 @@ async function buscaMensagensNaDb(aluno_x, turma_x, docente_x) {
     });
 };
 
+
+async function buscaDetalhesRelatoriosNaDb(relatorio_id) {
+    let database = new Database("base_de_dados.sqlite3", sqlite3.OPEN_READONLY);
+    return new Promise((resolve, reject) => {
+        database.get("SELECT * FROM relatorios WHERE id = ? ", [relatorio_id], function (err, relatorio) {
+            if (err) {
+                console.error("Erro ao procurar relatorio", err);
+                database.close();
+                reject(err);
+            }
+            //console.log(alunos_list)
+            database.close();
+            resolve(relatorio);
+        });
+    });
+};
+
 router.get('/D/:turma/alunos', async function (req, res, next) {
     if (req.session.cookie.secure == true && req.session.cookie.type == 'docente') {
         buscaAlunosDaTurmaX(req.params.turma).then(alunos => {
@@ -136,7 +153,7 @@ router.get('/D/:turma/alunos', async function (req, res, next) {
     }
 })
 
-router.get('/D/:turma/:aluno/relatorios', async function(req, res, next) {
+router.get('/D/:turma/:aluno/relatorios', async function (req, res, next) {
     if (req.session.cookie.secure == true && req.session.cookie.type == 'docente') {
         let aluno_nome = '';
 
@@ -155,21 +172,21 @@ router.get('/D/:turma/:aluno/relatorios', async function(req, res, next) {
 })
 
 
-router.get('/D/:turma/:aluno/relatorios/new', async function(req, res, next) {
+router.get('/D/:turma/:aluno/relatorios/new', async function (req, res, next) {
     if (req.session.cookie.secure == true && req.session.cookie.type == 'docente') {
-        res.render('new_relatorio', { title: 'Novo Relatório', turma: req.params.turma, aluno: req.params.aluno});
+        res.render('new_relatorio', { title: 'Novo Relatório', turma: req.params.turma, aluno: req.params.aluno });
     } else {
         res.redirect('/');
     }
 })
 
-router.post('/D/:turma/:aluno/relatorios/new', async function(req, res, next) {
+router.post('/D/:turma/:aluno/relatorios/new', async function (req, res, next) {
     if (req.session.cookie.secure == true && req.session.cookie.type == 'docente') {
         //console.log('HI IM HERE NOTICE ME');
         //console.log(req.body.DComportamento, req.body.slideComportamento, req.body.DAssiduidade, req.body.slideAssiduidade, req.body.DBemEstar, req.body.slideBemEstar, req.body.urgente, req.body.botao_modo);
         //if(req.body.botao_modo == 'enviar') {}
         insereRelatorioNaDB(req.params.aluno, req.body.urgente, req.body.DComportamento, req.body.slideComportamento, req.body.DAssiduidade, req.body.slideAssiduidade, req.body.DBemEstar, req.body.slideBemEstar);
-        res.redirect('/homepage/D/'+req.params.turma+'/'+req.params.aluno+'/relatorios');
+        res.redirect('/homepage/D/' + req.params.turma + '/' + req.params.aluno + '/relatorios');
     } else {
         res.redirect('/');
     }
@@ -190,7 +207,18 @@ router.post('/D/:turma/:aluno/mensagens', async function (req, res, next) {
     if (req.session.cookie.secure == true && req.session.cookie.type == 'docente') {
         console.log(req.session.cookie);
         insereMensagemNaDB(req.params.aluno, req.session.cookie.id, req.params.turma, req.body.mensagem);
-        res.redirect('/homepage/D/'+req.params.turma+'/'+req.params.aluno+'/mensagens');
+        res.redirect('/homepage/D/' + req.params.turma + '/' + req.params.aluno + '/mensagens');
+    } else {
+        res.redirect('/');
+    }
+})
+
+router.get('/D/:turma/:aluno/relatorios/:id_relatorio', async function (req, res, next) {
+    if (req.session.cookie.secure == true && req.session.cookie.type == 'docente') {
+        buscaDetalhesRelatoriosNaDb(req.params.id_relatorio).then( relatorio=> {
+            console.log(relatorio)
+            res.render('relatorioDetails', { relatorio: relatorio});
+        });
     } else {
         res.redirect('/');
     }

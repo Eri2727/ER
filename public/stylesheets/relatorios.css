@@ -1,5 +1,17 @@
+
+.spanRelatorio{
+    background-color: #5078de;
+}
+
+
+.data{
+    font-size: 22px;
+    padding:0;
+    background-color: transparent;
+    border: none;
+}
 .urgentetrue {
-    background-color: rgb(237, 84, 33);
+    background-color: rgb(251, 248, 247);
 }
 
 .newRelatorio {
@@ -57,13 +69,14 @@
 
 .ContainerRelatorio {
     margin: 0 auto;
-    width: 1000px;
     background-color: rgb(215, 211, 240);
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
     margin-bottom: 20px;
+    width: 100%;
+
 }
 
 .formText {
@@ -116,4 +129,11 @@
     border-radius: 5px;
   }
 
-  
+  .ContainerShowRelatorio{
+    display: flex;
+    flex-direction: column;
+    max-width: 70vw;
+    flex-basis: 33%;
+    width: 100%;
+    margin: 0 auto;
+  }
