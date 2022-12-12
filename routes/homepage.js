@@ -69,15 +69,15 @@ async function buscaAlunoX(aluno_x) {
     });
 }
 
-async function insereRelatorioNaDB(aluno_x, urgente, comportamento, slide_comp, assiduidade, slide_assi, bemestar, slide_bem) {
+async function insereRelatorioNaDB(aluno_x, urgente, valor_comportamento, titulo_comportamento, detalhes_comportamento, titulo_assiduidade, detalhes_assiduidade, titulo_pontualidade, detalhes_pontualidade, valor_bem_estar, titulo_bem_estar, detalhes_bem_estar, titulo_faltas_material, detalhes_faltas_material, valor_avaliacao, titulo_avaliacao, detalhes_avaliacao, titulo_visitas_estudo, detalhes_visitas_estudo) {
     let database = new Database("base_de_dados.sqlite3", sqlite3.OPEN_READWRITE);
     //console.log(aluno_x, urgente, comportamento, slide_comp, assiduidade, slide_assi, bemestar, slide_bem);
     return new Promise((resolve, reject) => {
         if (urgente == null) {
             urgente = false;
         }
-        database.run('INSERT INTO relatorios(id_aluno, urgente, comportamento_valor, comportamento, comportamento_detalhes, assiduidade_valor, assiduidade, assiduidade_detalhes, bem_estar_valor, bem_estar, bem_estar_detalhes,  data,  faltas_material_valor, faltas_material, faltas_material_detalhes, avaliacao_valor, avaliacao, avaliacao_detalhes, visitas_estudo_valor, visitas_estudo, visitas_estudo_detalhes) VALUES(?,?,?,?,?,?,?,?,?)',
-            [aluno_x, urgente,  slide_comp, comportamento, slide_assi, assiduidade, slide_bem, bemestar,  new Date().toDateString()], function (err) {
+        database.run('INSERT INTO relatorios(id_aluno, urgente, comportamento_valor, comportamento, comportamento_detalhes, assiduidade, assiduidade_detalhes, pontualidade, pontualidade_detalhes, bem_estar_valor, bem_estar, bem_estar_detalhes,  data, faltas_material, faltas_material_detalhes, avaliacao_valor, avaliacao, avaliacao_detalhes, visitas_estudo, visitas_estudo_detalhes) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
+            [aluno_x, urgente, valor_comportamento, titulo_comportamento, detalhes_comportamento, titulo_assiduidade, detalhes_assiduidade, titulo_pontualidade, detalhes_pontualidade, valor_bem_estar, titulo_bem_estar, detalhes_bem_estar,  new Date().toDateString(), titulo_faltas_material, detalhes_faltas_material, valor_avaliacao, titulo_avaliacao, detalhes_avaliacao, titulo_visitas_estudo, detalhes_visitas_estudo], function (err) {
                 if (err) {
                     console.error("Erro ao inserir na base de dados", err);
                     database.close();
@@ -185,7 +185,8 @@ router.post('/D/:turma/:aluno/relatorios/new', async function (req, res, next) {
         //console.log('HI IM HERE NOTICE ME');
         //console.log(req.body.DComportamento, req.body.slideComportamento, req.body.DAssiduidade, req.body.slideAssiduidade, req.body.DBemEstar, req.body.slideBemEstar, req.body.urgente, req.body.botao_modo);
         //if(req.body.botao_modo == 'enviar') {}
-        insereRelatorioNaDB(req.params.aluno, req.body.urgente, req.body.DComportamento, req.body.slideComportamento, req.body.DAssiduidade, req.body.slideAssiduidade, req.body.DBemEstar, req.body.slideBemEstar);
+        //                  aluno_x, urgente,                   valor_comportamento,            titulo_comportamento, detalhes_comportamento, titulo_assiduidade, detalhes_assiduidade,         titulo_pontualidade, detalhes_pontualidade, valor_bem_estar, titulo_bem_estar, detalhes_bem_estar,          titulo_faltas_material, detalhes_faltas_material,   valor_avaliacao, titulo_avaliacao, detalhes_avaliacao,              titulo_visitas_estudo, detalhes_visitas_estudo
+        insereRelatorioNaDB(req.params.aluno, req.body.urgente, req.body.slideComportamento, req.body.TComportamento, req.body.DComportamento, req.body.TAssiduidade , req.body.DAssiduidade, req.body.TPontualidade, req.body.DPontualidade, req.body.slideBemEstar, req.body.TBemEstar, req.body.DBemEstar, req.body.TFaltasMaterial, req.body.DFaltasMaterial, req.body.slideAvaliacao, req.body.TAvaliacao, req.body.DAvaliacao, req.body.TVisitasEstudos, req.body.DVisitasEstudos);
         res.redirect('/homepage/D/' + req.params.turma + '/' + req.params.aluno + '/relatorios');
     } else {
         res.redirect('/');

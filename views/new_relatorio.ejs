@@ -31,12 +31,12 @@
                         <div class="card-body">
                             <h5 class="card-title">Comportamento</h5>
                             <div class="slidecontainer">
-                                <input type="range" value="50" min="1" max="100" id="slideComportamento"
+                                <input type="range" value="50" min="1" max="100" id="slideComportamento" name="slideComportamento"
                                     oninput="this.nextElementSibling.value = this.value" class="slider">
                                 <output>50</output>
                             </div>
-                            <label for="DComportamento" id="titleComportamento">Informação geral</label>
-                            <input id="DComportamento" name="DComportamento" class="form-control input-sm"></input>
+                            <label for="TComportamento" id="titleComportamento">Informação geral</label>
+                            <input id="TComportamento" name="TComportamento" class="form-control input-sm"></input>
                             </br>
                             <p><label for="DComportamento" id="detalhesComportamento">Detalhes do comportamento</label>
                             </p>
@@ -49,8 +49,8 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Assiduidade</h5>
-                            <label for="DAssiduidade" id="titleAssiduidade">Informação geral</label>
-                            <input id="DAssiduidade" name="DAssiduidade" class="form-control input-sm"></input> </br>
+                            <label for="TAssiduidade" id="titleAssiduidade">Informação geral</label>
+                            <input id="TAssiduidade" name="TAssiduidade" class="form-control input-sm"></input> </br>
                             <p><label for="DAssiduidade">Detalhes da assiduidade</label></p>
                             <textarea id="DAssiduidade" name="DAssiduidade" rows="4" cols="50"></textarea>
                         </div>
@@ -61,8 +61,8 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Pontualidade </h5>
-                            <label for="DPontualidade" id="titlePontualidade">Informação geral</label>
-                            <input id="DPontualidade" name="DPontualidade" class="form-control input-sm"></input> </br>
+                            <label for="TPontualidade" id="titlePontualidade">Informação geral</label>
+                            <input id="TPontualidade" name="TPontualidade" class="form-control input-sm"></input> </br>
                             <p><label for="DPontualidade">Detalhes da pontualidade</label></p>
                             <textarea id="DPontualidade" name="DPontualidade" rows="4" cols="50"></textarea>
                         </div>
@@ -73,12 +73,12 @@
                         <div class="card-body">
                             <h5 class="card-title">Bem-Estar</h5>
                             <div class="slidecontainer">
-                                <input type="range" value="50" min="1" max="100" id="slideBemEstar"
+                                <input type="range" value="50" min="1" max="100" id="slideBemEstar" name="slideBemEstar"
                                     oninput="this.nextElementSibling.value = this.value" class="slider">
                                 <output>50</output>
                             </div>
-                            <label for="DBemEstar" id="titleBemEstar">Informação geral</label>
-                            <input id="DBemEstar" name="DBemEstar" class="form-control input-sm"></input> </br>
+                            <label for="TBemEstar" id="titleBemEstar">Informação geral</label>
+                            <input id="TBemEstar" name="TBemEstar" class="form-control input-sm"></input> </br>
                             <p><label for="DBemEstar">Detalhes do bem-estar</label></p>
                             <textarea id="DBemEstar" name="DBemEstar" rows="4" cols="50"></textarea>
                         </div>
@@ -88,8 +88,8 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Faltas de Material</h5>
-                            <label for="DFaltasMaterial" id="title">Informação geral</label>
-                            <input id="DFaltasMaterial" name="DFaltasMaterial" class="form-control input-sm"></input>
+                            <label for="TFaltasMaterial" id="title">Informação geral</label>
+                            <input id="TFaltasMaterial" name="TFaltasMaterial" class="form-control input-sm"></input>
                             </br>
                             <p><label for="DFaltasMaterial">Detalhes das faltas de material</label></p>
                             <textarea id="DFaltasMaterial" name="DFaltasMaterial" rows="4" cols="50"></textarea>
@@ -100,8 +100,13 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Avaliações</h5>
-                            <label for="DAvaliacao" id="titleAvaliacao">Informação geral</label>
-                            <input id="DAvaliacao" name="DAvaliacao" class="form-control input-sm"></input> </br>
+                            <div class="slidecontainer">
+                                <input type="range" value="50" min="1" max="100" id="slideAvaliacao" name="slideAvaliacao"
+                                    oninput="this.nextElementSibling.value = this.value" class="slider">
+                                <output>50</output>
+                            </div>
+                            <label for="TAvaliacao" id="titleAvaliacao">Informação geral</label>
+                            <input id="TAvaliacao" name="TAvaliacao" class="form-control input-sm"></input> </br>
                             <p><label for="DAvaliacao">Detalhes das avaliações</label></p>
                             <textarea id="DAvaliacao" name="DAvaliacao" rows="4" cols="50"></textarea>
                         </div>
@@ -111,8 +116,8 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Visitas de Estudo</h5>
-                            <label for="DVisitasEstudos" id="titleBemEstar">Informação geral</label>
-                            <input id="DVisitasEstudos" name="DVisitasEstudos" class="form-control input-sm"></input>
+                            <label for="TVisitasEstudos" id="titleBemEstar">Informação geral</label>
+                            <input id="TVisitasEstudos" name="TVisitasEstudos" class="form-control input-sm"></input>
                             </br>
                             <p><label for="DVisitasEstudos">Detalhes das visitas de estudo</label></p>
                             <textarea id="DVisitasEstudos" name="DVisitasEstudos" rows="4" cols="50"></textarea>
