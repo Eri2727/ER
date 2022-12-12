@@ -1,22 +1,24 @@
+
 .iconbtn {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
 
 }
 
 .backIcon{
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
     margin-top: 20px;
     margin-left: 5px;
+
 }
 
 .logoutbtn {
    
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
     
 }
@@ -28,38 +30,59 @@
 }
 
 .btnlog {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     padding: 0;
     border: none;
     background: rgb(204, 225, 239);
     border-radius: 10%;
     margin-top: 10px;
+    
 
 }
+
+.btnNewR{
+    border-radius: 10px;
+	border: 1px solid transparent;
+	background-color: #3d5dc7;
+	color: #f6f5f7;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 9px 30px;
+    margin-left: 6px;
+
+}
+
 
 .headerBar{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 0 10px;
+    background-color: rgb(218, 230, 253);
+    margin-bottom: 30px;
+    border: 1px solid  #0d2c92;
 }
 
 .headerText{
-    font-size: 28px;
+    font-size: 25px;
     margin-top: 15px;
+    color:#0d2c92;
 }
 
-.btnUser{
-    margin-left: 10%;
-    align-items: center;
-    
+.listRelatorios{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 30px;
 }
+
 
 .textUser{
     font-size: 20px;
     margin-left: 200px;
-    width: 800px;
+    width: 40%;
     align-items: center ;
     background-color: rgb(255, 255, 255);
 }
@@ -75,13 +98,20 @@ ul {
     list-style-type: none; /* Remove bullets */
     padding: 0; /* Remove padding */
     margin: 0; /* Remove margins */
+
   }
   
   ul li {
-    border: 1px solid rgb(80, 125, 185); /* Add a thin border to each list item */
+    border: 1px solid  #0d2c92; /* Add a thin border to each list item */
     margin-top: -1px; /* Prevent double borders */
     background-color: #ffffff; /* Add a grey background color */
     padding: 12px; /* Add some padding */
-    border-radius: 1%;
+    
+    
 
   }
+
+.searchAlunos{
+    width: 40px;
+}
+

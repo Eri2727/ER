@@ -76,8 +76,8 @@ async function insereRelatorioNaDB(aluno_x, urgente, comportamento, slide_comp, 
         if (urgente == null) {
             urgente = false;
         }
-        database.run('INSERT INTO relatorios(id_aluno, urgente, comportamento, comportamento_valor, assiduidade, assiduidade_valor, bem_estar, bem_estar_valor, data) VALUES(?,?,?,?,?,?,?,?,?)',
-            [aluno_x, urgente, comportamento, slide_comp, assiduidade, slide_assi, bemestar, slide_bem, new Date().toDateString()], function (err) {
+        database.run('INSERT INTO relatorios(id_aluno, urgente, comportamento_valor, comportamento, comportamento_detalhes, assiduidade_valor, assiduidade, assiduidade_detalhes, bem_estar_valor, bem_estar, bem_estar_detalhes,  data,  faltas_material_valor, faltas_material, faltas_material_detalhes, avaliacao_valor, avaliacao, avaliacao_detalhes, visitas_estudo_valor, visitas_estudo, visitas_estudo_detalhes) VALUES(?,?,?,?,?,?,?,?,?)',
+            [aluno_x, urgente,  slide_comp, comportamento, slide_assi, assiduidade, slide_bem, bemestar,  new Date().toDateString()], function (err) {
                 if (err) {
                     console.error("Erro ao inserir na base de dados", err);
                     database.close();

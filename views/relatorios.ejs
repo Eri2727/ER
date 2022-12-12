@@ -21,13 +21,12 @@
 
 
 <div class="newRelatorio">
-    <button type="button" class="btn btn-primary" onclick="window.location=window.location.href+'/new'">Criar novo
-        relatório</button>
+    <button type="button" class=" btnNewR " onclick="window.location=window.location.href+'/new'">Criar novo relatório</button>
 </div>
 
-<p class="historyText">Histórico de Relatórios</p>
-<ul>
 
+<ul class="listRelatorios">
+    <p class="historyText">Histórico de Relatórios</p>
     <% relatorios.forEach(function (rel) { %>
         <li>
             <div class="spanRelatorio urgente<%= rel.urgente %>">

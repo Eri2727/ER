@@ -1,51 +1,105 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-.logoutbtn {
 
-    margin-left: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-}
+.navbar {
+    background-color: rgb(238, 248, 248);
+    margin-top: -10;
+    margin-left: -10;
+    margin-right: -8;
 
-.btnlog {
-    width: 50px;
-    height: 50px;
-    margin-left: 90%;
-    padding: 0;
-    border: none;
-    background: rgb(235, 192, 217);
-    border-radius: 20%;
 }
 
 .iconbtn {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+}
+
+
+.logoutbtn {
+
     width: 40px;
     height: 40px;
     cursor: pointer;
-}
-
-.classblock {
-    width: 230px;
-    height: 230px;
-    background-color: rgb(177, 200, 248);
-    border-radius: 5%;
-    margin-left: 2%;
-    margin-top: 10%;
-    align-content: center;
-    cursor: pointer;
 
 }
 
-.rowclasses {
+.btnlog {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    background: rgb(222, 230, 235);
+    border-radius: 10%;
+    margin-top: 5px;
+    margin-left: 95%;
+    margin-bottom: 5px;
+
+}
+
+
+.classesText {
+    margin-right: 60%;
+    font-family: Helvetica ;
+}
+
+
+
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700');
+
+body {
+    font-family: ' OpenSans', sans-serif;
+}
+
+
+.classesContainer {
+
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-bottom: 20px;
+   
+    margin: 0 auto;
     justify-content: center;
 }
 
-.classborder {
-    font-family: 'Montserrat', sans-serif;
-    margin-left: 37%;
-    margin-top: 35%;
-    font-size: 40px;
 
+/*Profile Card 1*/
+.profile-card-1 {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    width: 20%;
+    color: #ffffff;
+    text-align: center;
+    height: 200px;
+    border-radius: 10px;
+    margin-left: 2%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    cursor: pointer;
+}
+
+.profile-card-1 .background {
+    width: 100%;
+    vertical-align: top;
+    opacity: 0.9;
+    -webkit-filter: blur(2px);
+    filter: blur(2px);
+    -webkit-transform: scale(1.8);
+    cursor: pointer;
+}
+
+.profile-card-1 .profile {
+    border-radius: 50%;
+    position: absolute;
+    bottom: 40%;
+    left: 40%;
+    max-width: 100px;
+    font-size: 50px;
+    margin: 0 auto;
+    
 }

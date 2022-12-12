@@ -1,6 +1,8 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/alunos.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
 <div class="headerBar">
@@ -17,7 +19,10 @@
         </form>
     </div>
 </div>
-<ul>
+
+<br>
+<ul class="listRelatorios" id="AlunosList">
+    <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
     <% alunos.forEach(function (user) { %>
         <li>
             <div class="spanUser">
@@ -25,12 +30,23 @@
                     <%= user.nome_aluno %> - <%= user.nome_ee %>
                 </h1>
                 <div class="btnUser">
-                    <button type="button" class="btn btn-primary"
+                    <button type="button" class="btnNewR"
                         onclick="window.location='/homepage/D/<%= turma %>/<%= user.id %>/relatorios'">Relatórios</button>
-                    <button type="button" class="btn btn-primary"
+                    <button type="button" class="btnNewR"
                         onclick="window.location='/homepage/D/<%= turma %>/<%= user.id %>/mensagens'">Mensagens</button>
                 </div>
             </div>
         </li>
         <% }) %>
 </ul>
+
+<script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#AlunosList li").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    </script>

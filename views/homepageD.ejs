@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="/stylesheets/homepage.css" type="text/css"/>
+<link rel="stylesheet" href="/stylesheets/homepage.css" type="text/css" />
 
-<div>
+<div class="navbar">
     <form action="/logout" method="post">
         <button class="btnlog" type="submit">
             <img class="iconbtn" src="/assets/logout.png" />
@@ -8,22 +8,28 @@
     </form>
 </div>
 
-<h1>Selecione a turma.</h1>
 
-<div class="rowclasses">
-    <div class="classblock" onclick="window.location='/homepage/D/1/alunos'">
-        <h1 class="classborder" >
-            6º1
-        </h1>
+
+
+<h1 class="classesText">As minhas turmas</h1>
+<section>
+    <div class="classesContainer">
+        <div class="row">
+
+            <div class="col-md-3">
+                <div class="card profile-card-1" onclick="window.location='/homepage/D/1/alunos'">
+                    <img src="/assets/red1.jpg" class="background" />
+                    <p class="profile"> 6º1</p>
+                </div>
+                <div class="card profile-card-1" onclick="window.location='/homepage/D/2/alunos'">
+                    <img src="/assets/mix.jpg" class="background" />
+                    <p class="profile"> 6º2</p>
+                </div>
+                <div class="card profile-card-1" onclick="window.location='/homepage/D/3/alunos'">
+                    <img src="/assets/mix.jpg" class="background" />
+                    <p class="profile"> 6º3</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="classblock" onclick="window.location='/homepage/D/2/alunos'">
-        <h1 class="classborder">
-            6º2
-        </h1>
-    </div>
-    <div class="classblock" onclick="window.location='/homepage/D/3/alunos'">
-        <h1 class="classborder">
-            6º3
-        </h1>
-    </div>
-</div>
+</section>
