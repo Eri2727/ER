@@ -4,6 +4,23 @@ const { Database } = require('sqlite3');
 const router = express.Router();
 const sqlite3 = require('sqlite3').verbose();
 
+
+async function buscaAlunosDoEE(id_ee_x) {
+    let database = new Database("base_de_dados.sqlite3", sqlite3.OPEN_READONLY);
+    return new Promise((resolve, reject) => {
+        database.all("SELECT * FROM alunos WHERE id_ee = ?", [id_ee_x], function (err, alunos_list) {
+            if (err) {
+                console.error("Erro ao procurar alunos", err);
+                database.close();
+                reject(err);
+            }
+            console.log(alunos_list)
+            database.close();
+            resolve(alunos_list);
+        });
+    });
+};
+
 async function buscaAlunosDaTurmaX(turma_x) {
     let database = new Database("base_de_dados.sqlite3", sqlite3.OPEN_READONLY);
     return new Promise((resolve, reject) => {
@@ -217,8 +234,19 @@ router.get('/D', function (req, res, next) {
 });
 
 router.get('/EE', function (req, res, next) {
+    if (req.session.cookie.secure == true && req.session.cookie.type == 'encarregado') { 
+        console.log(req.session.cookie.id);
+        buscaAlunosDoEE(req.session.cookie.id).then( alunos=> {
+            res.render('homepageEE', { title: 'Homepage', alunos: alunos });
+        });
+    } else {
+        res.redirect('/');
+    }
+});
+
+router.get('/EE/:aluno', function (req, res, next) {
     if (req.session.cookie.secure == true && req.session.cookie.type == 'encarregado') {
-        res.render('homepageEE', { title: 'Homepage' });
+        res.send('Hello');
     } else {
         res.redirect('/');
     }
