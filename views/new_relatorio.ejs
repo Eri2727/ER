@@ -100,6 +100,11 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Avaliações</h5>
+                            <div class="slidecontainer">
+                                <input type="range" value="50" min="1" max="100" id="slideComportamento"
+                                    oninput="this.nextElementSibling.value = this.value" class="slider">
+                                <output>50</output>
+                            </div>
                             <label for="DAvaliacao" id="titleAvaliacao">Informação geral</label>
                             <input id="DAvaliacao" name="DAvaliacao" class="form-control input-sm"></input> </br>
                             <p><label for="DAvaliacao">Detalhes das avaliações</label></p>
