@@ -46,13 +46,6 @@
 
 
 
-@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
-@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700');
-
-body {
-    font-family: ' OpenSans', sans-serif;
-}
 
 
 .classesContainer {
@@ -66,42 +59,57 @@ body {
     justify-content: center;
 }
 
+body {
+    margin: 0;
+    font-family: Open-sans, sans-serif;
+  }
+  h1, h2, h3 {
+    font-family: Raleway, Helvetica, sans-serif;
+  }
+  h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-top: 0;
+  }
+  .padded {
+    padding: 100px 0;
+  }
+  .wrapper-grey {
+    background: #F4F4F4;
+  }
 
-/*Profile Card 1*/
-.profile-card-1 {
-    border: 1px solid black;
+
+  .card {
+    height: 250px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    background-size: cover !important;
+    color: white;
     position: relative;
-    float: left;
-    overflow: hidden;
-    width: 300px;
-    color: #ffffff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
   
-    height: 150px;
-    border-radius: 10px;
-    margin-left: 2%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    cursor: pointer;
-
-}
-
-.profile-card-1 .background {
-    width: 100%;
-    vertical-align: top; 
-    opacity: 0.9;
-    -webkit-filter: blur(2px);
-    filter: blur(2px);
-    -webkit-transform: scale(1.8);
-    cursor: pointer;
-}
-
-.profile-card-1 .profile {
-    border-radius: 50%;
+  .card-description {
     position: absolute;
-    bottom: 20%;
-    left: 40%;
-    
-    font-size: 30px;
-    margin: 0 auto;
-    
-}
+    bottom: 10px;
+    left: 10px;
+  }
+  .card-description h2 {
+    font-size: 22px;
+  }
+  .card-description p {
+    font-size: 15px;
+  }
+
+  .features img {
+    width: 100px;
+  }
+  .features h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .features p {
+    font-size: 15px;
+    font-weight: lighter;
+  }

@@ -4,23 +4,6 @@ const { Database } = require('sqlite3');
 const router = express.Router();
 const sqlite3 = require('sqlite3').verbose();
 
-
-router.get('/EE', function (req, res, next) {
-    if (req.session.cookie.secure == true && req.session.cookie.type == 'encarregado') {
-        res.render('homepageEE', { title: 'Homepage' });
-    } else {
-        res.redirect('/');
-    }
-});
-
-router.get('/D', function (req, res, next) {
-    if (req.session.cookie.secure == true && req.session.cookie.type == 'docente') {
-        res.render('homepageD', { title: 'Homepage' });
-    } else {
-        res.redirect('/');
-    }
-});
-
 async function buscaAlunosDaTurmaX(turma_x) {
     let database = new Database("base_de_dados.sqlite3", sqlite3.OPEN_READONLY);
     return new Promise((resolve, reject) => {
@@ -224,5 +207,22 @@ router.get('/D/:turma/:aluno/relatorios/:id_relatorio', async function (req, res
         res.redirect('/');
     }
 })
+
+router.get('/D', function (req, res, next) {
+    if (req.session.cookie.secure == true && req.session.cookie.type == 'docente') {
+        res.render('homepageD', { title: 'Homepage' });
+    } else {
+        res.redirect('/');
+    }
+});
+
+router.get('/EE', function (req, res, next) {
+    if (req.session.cookie.secure == true && req.session.cookie.type == 'encarregado') {
+        res.render('homepageEE', { title: 'Homepage' });
+    } else {
+        res.redirect('/');
+    }
+});
+
 
 module.exports = router;
