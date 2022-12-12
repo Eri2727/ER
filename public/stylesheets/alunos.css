@@ -42,7 +42,7 @@
 }
 
 .btnNewR{
-    border-radius: 10px;
+    border-radius: 20px;
 	border: 1px solid transparent;
 	background-color: #3d5dc7;
 	color: #f6f5f7;
@@ -59,9 +59,9 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 0 10px;
-    background-color: rgb(218, 230, 253);
-    margin-bottom: 30px;
-    border: 1px solid  #0d2c92;
+    background-color: rgb(231, 244, 255);
+    margin-bottom: 20px;
+    border: 0.5px solid  #0d2c92;
 }
 
 .headerText{

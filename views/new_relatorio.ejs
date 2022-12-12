@@ -8,7 +8,7 @@
 <div class="headerBar">
     <div class="headerLeft">
         <img class="backIcon" src="/assets/goBack.png" onclick="window.history.back()" />
-        <p class="headerText">Criar relatório do aluno </p>
+        <p class="headerText">Criar Relatório do Aluno </p>
 
     </div>
     <div>
@@ -22,130 +22,123 @@
 
 
 <!-- <form action="/submitRelatorio"> -->
-<div class="ContainerRelatorio">
-    <form method="post">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <p class="formText card-title">Comportamento</p>
-
-                        <div class="slidecontainer">
-                            <input type="range" value="50" min="1" max="100" id="slideComportamento"
-                                oninput="this.nextElementSibling.value = this.value" class="slider">
-                            <output>50</output>
+<div class="ContainerRelatorioCreate">
+    <div class="formsRelatorio">
+        <form method="post">
+            <div class="row row-cols-2">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Comportamento</h5>
+                            <div class="slidecontainer">
+                                <input type="range" value="50" min="1" max="100" id="slideComportamento"
+                                    oninput="this.nextElementSibling.value = this.value" class="slider">
+                                <output>50</output>
+                            </div>
+                            <label for="DComportamento" id="titleComportamento">Informação geral</label>
+                            <input id="DComportamento" name="DComportamento" class="form-control input-sm"></input>
+                            </br>
+                            <p><label for="DComportamento" id="detalhesComportamento">Detalhes do comportamento</label>
+                            </p>
+                            <textarea id="DComportamento" name="DComportamento" rows="4" cols="50"></textarea>
                         </div>
-                        <label for="DComportamento" id="titleComportamento">Informação geral</label>
-                        <input id="DComportamento" name="DComportamento" class="form-control input-sm"></input> </br>
-                        <p><label for="DComportamento" id="detalhesComportamento">Detalhes do comportamento</label></p>
-                        <textarea id="DComportamento" name="DComportamento" rows="4" cols="50"></textarea>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Assiduidade</h5>
+                            <label for="DAssiduidade" id="titleAssiduidade">Informação geral</label>
+                            <input id="DAssiduidade" name="DAssiduidade" class="form-control input-sm"></input> </br>
+                            <p><label for="DAssiduidade">Detalhes da assiduidade</label></p>
+                            <textarea id="DAssiduidade" name="DAssiduidade" rows="4" cols="50"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Pontualidade </h5>
+                            <label for="DPontualidade" id="titlePontualidade">Informação geral</label>
+                            <input id="DPontualidade" name="DPontualidade" class="form-control input-sm"></input> </br>
+                            <p><label for="DPontualidade">Detalhes da pontualidade</label></p>
+                            <textarea id="DPontualidade" name="DPontualidade" rows="4" cols="50"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Bem-Estar</h5>
+                            <div class="slidecontainer">
+                                <input type="range" value="50" min="1" max="100" id="slideBemEstar"
+                                    oninput="this.nextElementSibling.value = this.value" class="slider">
+                                <output>50</output>
+                            </div>
+                            <label for="DBemEstar" id="titleBemEstar">Informação geral</label>
+                            <input id="DBemEstar" name="DBemEstar" class="form-control input-sm"></input> </br>
+                            <p><label for="DBemEstar">Detalhes do bem-estar</label></p>
+                            <textarea id="DBemEstar" name="DBemEstar" rows="4" cols="50"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Faltas de Material</h5>
+                            <label for="DFaltasMaterial" id="title">Informação geral</label>
+                            <input id="DFaltasMaterial" name="DFaltasMaterial" class="form-control input-sm"></input>
+                            </br>
+                            <p><label for="DFaltasMaterial">Detalhes das faltas de material</label></p>
+                            <textarea id="DFaltasMaterial" name="DFaltasMaterial" rows="4" cols="50"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Avaliações</h5>
+                            <label for="DAvaliacao" id="titleAvaliacao">Informação geral</label>
+                            <input id="DAvaliacao" name="DAvaliacao" class="form-control input-sm"></input> </br>
+                            <p><label for="DAvaliacao">Detalhes das avaliações</label></p>
+                            <textarea id="DAvaliacao" name="DAvaliacao" rows="4" cols="50"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Visitas de Estudo</h5>
+                            <label for="DVisitasEstudos" id="titleBemEstar">Informação geral</label>
+                            <input id="DVisitasEstudos" name="DVisitasEstudos" class="form-control input-sm"></input>
+                            </br>
+                            <p><label for="DVisitasEstudos">Detalhes das visitas de estudo</label></p>
+                            <textarea id="DVisitasEstudos" name="DVisitasEstudos" rows="4" cols="50"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="submitCard">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Envio</h5>
+                            <div class="submitRelatorio">
+                                <div class="form-check containerUrgent">
+                                    <input class='form-check-input checkbox' type="checkbox" id="urgente" name="urgente"
+                                        value="true">
+                                    <label class="form-check-label urgentText" for="urgente"> É
+                                        urgente?</label><br>
+                                </div>
+                                <button class="btnNewR" type="submit" id="sendRelatorio"> Enviar como urgente </button>
+                                <button class="btnNewR" type="submit"> Enviar </button>
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </div>
-        <br>
-        <br>
-
-        <div>
-            <p class="formText">Assiduidade</p>
-            <div class="slidecontainer">
-                <input type="range" value="50" min="1" max="100" id="slideAssiduidade"
-                    oninput="this.nextElementSibling.value = this.value" class="slider">
-                <output>50</output>
-            </div>
-            <label for="DAssiduidade" id="titleAssiduidade">Informação geral</label>
-            <input id="DAssiduidade" name="DAssiduidade" class="form-control input-sm"></input> </br>
-            <p><label for="DAssiduidade">Detalhes da assiduidade</label></p>
-            <textarea id="DAssiduidade" name="DAssiduidade" rows="4" cols="50"></textarea>
-        </div>
-        <br>
-
-        <div>
-            <p class="formText">Pontualidade</p>
-            <div class="slidecontainer">
-                <input type="range" value="50" min="1" max="100" id="slidePontualidade"
-                    oninput="this.nextElementSibling.value = this.value" class="slider">
-                <output>50</output>
-            </div>
-            <label for="DPontualidade" id="titlePontualidade">Informação geral</label>
-            <input id="DPontualidade" name="DPontualidade" class="form-control input-sm"></input> </br>
-            <p><label for="DPontualidade">Detalhes da pontualidade</label></p>
-            <textarea id="DPontualidade" name="DPontualidade" rows="4" cols="50"></textarea>
-        </div>
-        <br>
-        <br>
-
-        <div>
-            <p class="formText">Bem-Estar</p>
-            <div class="slidecontainer">
-                <input type="range" value="50" min="1" max="100" id="slideBemEstar"
-                    oninput="this.nextElementSibling.value = this.value" class="slider">
-                <output>50</output>
-            </div>
-            <label for="DBemEstar" id="titleBemEstar">Informação geral</label>
-            <input id="DBemEstar" name="DBemEstar" class="form-control input-sm"></input> </br>
-            <p><label for="DBemEstar">Detalhes do bem-estar</label></p>
-            <textarea id="DBemEstar" name="DBemEstar" rows="4" cols="50"></textarea>
-        </div>
-        <br>
-        <br>
-
-        <div>
-            <p class="formText">Faltas de Material</p>
-            <div class="slidecontainer">
-                <input type="range" value="50" min="1" max="100" id="slideFaltasMaterial"
-                    oninput="this.nextElementSibling.value = this.value" class="slider">
-                <output>50</output>
-            </div>
-            <label for="DFaltasMaterial" id="title">Informação geral</label>
-            <input id="DFaltasMaterial" name="DFaltasMaterial" class="form-control input-sm"></input> </br>
-            <p><label for="DFaltasMaterial">Detalhes das faltas de material</label></p>
-            <textarea id="DFaltasMaterial" name="DFaltasMaterial" rows="4" cols="50"></textarea>
-        </div>
-        <br>
-        <br>
-
-        <div>
-            <p class="formText">Avaliações</p>
-            <div class="slidecontainer">
-                <input type="range" value="50" min="1" max="100" id="slideAvaliacao"
-                    oninput="this.nextElementSibling.value = this.value" class="slider">
-                <output>50</output>
-            </div>
-            <label for="DAvaliacao" id="titleAvaliacao">Informação geral</label>
-            <input id="DAvaliacao" name="DAvaliacao" class="form-control input-sm"></input> </br>
-            <p><label for="DAvaliacao">Detalhes das avaliações</label></p>
-            <textarea id="DAvaliacao" name="DAvaliacao" rows="4" cols="50"></textarea>
-        </div>
-        <br>
-        <br>
-
-        <div>
-            <p class="formText">Visitas de Estudo</p>
-            <div class="slidecontainer">
-                <input type="range" value="50" min="1" max="100" id="slideVisitasEstudo"
-                    oninput="this.nextElementSibling.value = this.value" class="slider">
-                <output>50</output>
-            </div>
-            <label for="DVisitasEstudos" id="titleBemEstar">Informação geral</label>
-            <input id="DVisitasEstudos" name="DVisitasEstudos" class="form-control input-sm"></input> </br>
-            <p><label for="DVisitasEstudos">Detalhes das visistas de estudo</label></p>
-            <textarea id="DVisitasEstudos" name="DVisitasEstudos" rows="4" cols="50"></textarea>
-        </div>
-        <br>
-        <br>
-
-
-        <div class="submitRelatorio">
-            <div class="form-check containerUrgent">
-                <input class='form-check-input checkbox' type="checkbox" id="urgente" name="urgente" value="true">
-                <label class="form-check-label urgentText" for="urgente"> É urgente?</label><br>
-            </div>
-            <button class="btnNewR" type="submit" id="sendRelatorio"> Enviar </button>
-            <button class="btnNewR" type="submit"> Save </button>
-        </div>
-
+    </div>
     </form>
-    <p class="urgentMessage">Caso não seja dado como urgente este relatório será enviado automáticamente na próxima
-        sexta-feira.</p>
 </div>
