@@ -27,16 +27,19 @@
     <div class="wrapper-grey padded">
         <div class="container">
             <h2 class="text-center">Os Meus Educandos</h2>
-            <div class="col-xs-12 col-sm-4">
-                <div class="card"
-                    style="background: linear-gradient(rgba(231, 208, 5, 0.3), rgba(233, 3, 3, 0.2))" onclick="window.location='/homepage/D/1/alunos'" >
-                    <div class="card-description">
-                        <h2>Chico da Tina</h2>
-                    </div>
-                </div>
-            </div>
 
-        </div>
+            <% alunos.forEach(function (aluno) { %>
+              <div class="col-xs-12 col-sm-4">
+                  <div class="card"
+                      style="background: linear-gradient(rgba(231, 208, 5, 0.3), rgba(233, 3, 3, 0.2))" onclick="window.location='/homepage/EE/<%= aluno.id %>/'" >
+                      <div class="card-description">
+                          <h2><%= aluno.nome_aluno %></h2>
+                      </div>
+                  </div>
+              </div>
+          <% }) %>
+            
+          </div>
     </div>
 
 

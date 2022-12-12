@@ -114,6 +114,7 @@ passport.use('loginEE', new LocalStrategy(function verify(username, password, ca
       sessionInfo.cookie.secure = true;
       sessionInfo.cookie.user = user.username;
       sessionInfo.cookie.type = user.type;
+      sessionInfo.cookie.id = user.id;
 		  return callback(null, user);
 		}
 		return callback(null, false, {message: 'Dados de login inválidos.'});
