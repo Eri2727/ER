@@ -21,12 +21,12 @@ async function buscaAlunosDoEE(id_ee_x) {
     });
 };
 
-+async function buscaMensagensNaDBEE(id_aluno) {
+async function buscaMensagensNaDBEE(id_aluno) {
     let database = new Database("base_de_dados.sqlite3", sqlite3.OPEN_READONLY);
     return new Promise((resolve, reject) => {
         database.all("SELECT * FROM mensagens WHERE id_aluno = ?", [id_aluno], function (err, alunos_list) {
             if (err) {
-                console.error("Erro ao procurar alunos", err);
+                console.error("Erro ao procurar mensagens do EE", err);
                 database.close();
                 reject(err);
             }
@@ -44,7 +44,7 @@ async function insereMensagemNaDBEE(id_aluno, mensagem_x) {
         database.run('INSERT INTO mensagens(id_aluno, mensagem) VALUES(?,?)',
             [id_aluno, mensagem_x], function (err) {
                 if (err) {
-                    console.error("Erro ao inserir na base de dados", err);
+                    console.error("Erro ao inserir mensagem do EE na base de dados", err);
                     database.close();
                     reject(err);
                 }
@@ -145,7 +145,7 @@ async function insereMensagemNaDB(aluno_x, docente_x, mensagem_x) {
 async function buscaMensagensNaDb(aluno_x, docente_x) {
     let database = new Database("base_de_dados.sqlite3", sqlite3.OPEN_READONLY);
     return new Promise((resolve, reject) => {
-        database.all("SELECT id_aluno, id_docente, id_turma, mensagem FROM mensagens WHERE id_aluno = ? and id_docente = ?", [aluno_x, docente_x], function (err, alunos_list) {
+        database.all("SELECT id_aluno, id_docente, mensagem FROM mensagens WHERE id_aluno = ? and id_docente = ?", [aluno_x, docente_x], function (err, alunos_list) {
             if (err) {
                 console.error("Erro ao procurar alunos", err);
                 database.close();
@@ -270,13 +270,41 @@ router.get('/D', function (req, res, next) {
 router.get('/EE', function (req, res, next) {
     if (req.session.cookie.secure == true && req.session.cookie.type == 'encarregado') {
         buscaAlunosDoEE(req.session.cookie.id).then(alunos => {
-            res.render('homepageEE', { title: 'Alunos', alunos: alunos });
+            res.render('homepageEE', { title: 'Alunos', alunos: alunos, nome_ee: req.session.cookie.nome });
         });
     } else {
         res.redirect('/');
     }
 });
 
+router.get('/EE/:aluno/relatorios', async function (req, res, next) {
+    if (req.session.cookie.secure == true && req.session.cookie.type == 'encarregado') {
+        let aluno_nome = '';
+
+        await buscaAlunoX(req.params.aluno).then(aluno => { //await necessario para o nome carregar sempre mesmo que o utilizador nao retorne para tras da forma correta
+            aluno_nome = aluno[0].nome_aluno;
+            console.log(aluno_nome);
+        })
+        
+        buscaRelatoriosDoAlunoX(req.params.aluno).then(relatorios => {
+            //console.log(relatorios);
+            res.render('relatoriosEE', { title: 'Relatórios', relatorios: relatorios, aluno: aluno_nome });
+        })
+    } else {
+        res.redirect('/');
+    }
+});
+
+router.get('/EE/:aluno/relatorios/:id_relatorio', async function (req, res, next) {
+    if (req.session.cookie.secure == true && req.session.cookie.type == 'encarregado') {
+        buscaDetalhesRelatoriosNaDb(req.params.id_relatorio).then(relatorio => {
+            console.log(relatorio)
+            res.render('relatorioDetails', { relatorio: relatorio });
+        });
+    } else {
+        res.redirect('/');
+    }
+})
 
 router.get('/EE/:aluno/mensagens', function (req, res, next) {
     if (req.session.cookie.secure == true && req.session.cookie.type == 'encarregado') {

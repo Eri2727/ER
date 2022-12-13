@@ -3,10 +3,12 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+
 <div class="headerBar">
     <div class="headerLeft">
         <img class="backIcon" src="/assets/goBack.png" onclick="history.back()" />
-        <p class="headerText">Página não encontrada :(</p>
+        <p class="headerText">Lista de Relatórios do aluno(a) <%= aluno %>
+        </p>
     </div>
     <div>
         <form action="/logout" method="post">
@@ -16,3 +18,16 @@
         </form>
     </div>
 </div>
+
+<ul class="listRelatorios">
+    <p class="historyText">Histórico de Relatórios</p>
+    <% relatorios.forEach(function (rel) { %>
+        <li>
+            <div class="spanRelatorio urgente<%= rel.urgente %>">
+                <button class="data" onclick="window.location=window.location.href + '/<%= rel.id%>'">
+                    <%= rel.data %>
+                </button>
+            </div>
+        </li>
+        <% }) %>
+</ul>
