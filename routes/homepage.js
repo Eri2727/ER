@@ -222,7 +222,7 @@ router.get('/D/:turma/:aluno/mensagens', async function (req, res, next) {
 
         buscaMensagensNaDb(req.params.aluno, req.session.cookie.id).then(mensagens => {
             console.log(mensagens);
-            res.render('mensagens', { title: 'Mensagens', mensagens: mensagens, nome_docente: req.session.cookie.nome, nome_ee: nome_ee });
+            res.render('mensagensD', { title: 'Mensagens', mensagens: mensagens, nome_docente: req.session.cookie.nome, nome_ee: nome_ee });
         });
     } else {
         res.redirect('/');
