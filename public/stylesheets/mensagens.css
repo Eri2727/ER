@@ -153,7 +153,7 @@ img {
 .mesgs {
   float: left;
   padding: 30px 15px 0 25px;
-  width: 60%;
+  width: 100%;
 }
 
 .sent_msg p {
@@ -205,7 +205,7 @@ img {
 }
 
 .messaging {
-  width: 1500px;
+  width: 100%;
   padding: 0 0 50px 0;
 }
 
