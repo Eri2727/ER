@@ -222,3 +222,55 @@
     
   }
 
+
+
+  
+  
+  main {
+    border-width: 2px 0;
+    border-style: solid;
+  }
+  
+  main h2 {
+    margin: 0;
+  }
+  
+  main > div + h2 {
+    border-top: 2px solid;
+  }
+  
+  h2 button {
+    all: inherit;
+    border: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5em 0;
+  }
+  
+  h2 button:focus svg {
+    outline: 2px solid;
+  }
+  
+  button svg {
+    height: 1em;
+    margin-left: 0.5em;
+  }
+  
+  [aria-expanded="true"] .vert {
+    display: none;
+  }
+  
+  [aria-expanded] rect {
+    fill: currentColor;
+  }
+  
+  /* page styles */
+  
+  html {
+    font-family: Arial, sans-serif;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }

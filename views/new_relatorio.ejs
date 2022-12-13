@@ -21,7 +21,7 @@
 </div>
 
 
-<!-- <form action="/submitRelatorio"> -->
+<!-- <form action="/submitRelatorio">
 <div class="ContainerRelatorioCreate">
     <div class="formsRelatorio">
         <form method="post">
@@ -147,3 +147,150 @@
     </div>
     </form>
 </div>
+ -->
+
+
+<main>
+    <form method="post"></form>
+    <h2>
+        <button aria-expanded="false">
+            Assiduidade
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 10 10">
+                <rect class="vert" height="8" width="2" y="1" x="4" />
+                <rect height="2" width="8" y="4" x="1" />
+            </svg>
+        </button>
+    </h2>
+    <div hidden>
+        <div class="card-body">
+            <label for="TAssiduidade" id="titleAssiduidade">Informação geral</label>
+            <input id="TAssiduidade" name="TAssiduidade" class="form-control input-sm"></input> </br>
+            <p><label for="DAssiduidade">Detalhes da assiduidade</label></p>
+            <textarea id="DAssiduidade" name="DAssiduidade" rows="4" cols="50"></textarea>
+        </div>
+
+    </div>
+    <h2>
+        <button aria-expanded="false">
+            Avaliação
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 10 10">
+                <rect class="vert" height="8" width="2" y="1" x="4" />
+                <rect height="2" width="8" y="4" x="1" />
+            </svg>
+        </button>
+    </h2>
+    <div hidden>
+        <div class="card-body">
+            <h5 class="card-title">Avaliações</h5>
+            <div class="slidecontainer">
+                <input type="range" value="50" min="1" max="100" id="slideAvaliacao" name="slideAvaliacao"
+                    oninput="this.nextElementSibling.value = this.value" class="slider">
+                <output>50</output>
+            </div>
+            <label for="TAvaliacao" id="titleAvaliacao">Informação geral</label>
+            <input id="TAvaliacao" name="TAvaliacao" class="form-control input-sm"></input> </br>
+            <p><label for="DAvaliacao">Detalhes das avaliações</label></p>
+            <textarea id="DAvaliacao" name="DAvaliacao" rows="4" cols="50"></textarea>
+        </div>
+    </div>
+    <h2>
+        <button aria-expanded="false">
+            Bem-Estar
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 10 10">
+                <rect class="vert" height="8" width="2" y="1" x="4" />
+                <rect height="2" width="8" y="4" x="1" />
+            </svg>
+        </button>
+    </h2>
+    <div hidden>
+        <div class="card-body">
+            <div class="slidecontainer">
+                <input type="range" value="50" min="1" max="100" id="slideBemEstar" name="slideBemEstar"
+                    oninput="this.nextElementSibling.value = this.value" class="slider">
+                <output>50</output>
+            </div>
+            <label for="TBemEstar" id="titleBemEstar">Informação geral</label>
+            <input id="TBemEstar" name="TBemEstar" class="form-control input-sm"></input> </br>
+            <p><label for="DBemEstar">Detalhes do bem-estar</label></p>
+            <textarea id="DBemEstar" name="DBemEstar" rows="4" cols="50"></textarea>
+        </div>
+    </div>
+    <h2>
+        <button aria-expanded="false">
+            Comportamento
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 10 10">
+                <rect class="vert" height="8" width="2" y="1" x="4" />
+                <rect height="2" width="8" y="4" x="1" />
+            </svg>
+        </button>
+    </h2>
+    <div hidden>
+        <div class="card-body">
+            <div class="slidecontainer">
+                <input type="range" value="50" min="1" max="100" id="slideComportamento" name="slideComportamento"
+                    oninput="this.nextElementSibling.value = this.value" class="slider">
+                <output>50</output>
+            </div>
+            <label for="TComportamento" id="titleComportamento">Informação geral</label>
+            <input id="TComportamento" name="TComportamento" class="form-control input-sm"></input>
+            </br>
+            <p><label for="DComportamento" id="detalhesComportamento">Detalhes do comportamento</label>
+            </p>
+            <textarea id="DComportamento" name="DComportamento" rows="4" cols="50"></textarea>
+        </div>
+    </div>
+    <h2>
+        <button aria-expanded="false">
+            Faltas de Material
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 10 10">
+                <rect class="vert" height="8" width="2" y="1" x="4" />
+                <rect height="2" width="8" y="4" x="1" />
+            </svg>
+        </button>
+    </h2>
+    <div hidden>
+        <div class="card-body">
+            <label for="TFaltasMaterial" id="title">Informação geral</label>
+            <input id="TFaltasMaterial" name="TFaltasMaterial" class="form-control input-sm"></input>
+            </br>
+            <p><label for="DFaltasMaterial">Detalhes das faltas de material</label></p>
+            <textarea id="DFaltasMaterial" name="DFaltasMaterial" rows="4" cols="50"></textarea>
+        </div>
+    </div>
+    <h2>
+        <button aria-expanded="false">
+            Visitas de Estudo
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 10 10">
+                <rect class="vert" height="8" width="2" y="1" x="4" />
+                <rect height="2" width="8" y="4" x="1" />
+            </svg>
+        </button>
+    </h2>
+    <div hidden>
+        <div class="card-body">
+            <label for="TVisitasEstudos" id="titleBemEstar">Informação geral</label>
+            <input id="TVisitasEstudos" name="TVisitasEstudos" class="form-control input-sm"></input>
+            </br>
+            <p><label for="DVisitasEstudos">Detalhes das visitas de estudo</label></p>
+            <textarea id="DVisitasEstudos" name="DVisitasEstudos" rows="4" cols="50"></textarea>
+        </div>
+    </div>
+
+    <div class="submitCard">
+
+        <div class="card-body">
+            <h5 class="card-title">Envio</h5>
+            <div class="submitRelatorio">
+                <div class="form-check containerUrgent">
+                    <input class='form-check-input checkbox' type="checkbox" id="urgente" name="urgente"
+                        value="true">
+                    <label class="form-check-label urgentText" for="urgente"> É
+                        urgente?</label><br>
+                </div>
+                <button class="btnNewR" type="submit" id="sendRelatorio"> Enviar como urgente </button>
+                <button class="btnNewR" type="submit"> Enviar </button>
+            </div>
+
+        </div>
+    </form>
+</main>
