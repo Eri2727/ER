@@ -1,6 +1,28 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 
+
+.btnNewR{
+  border-radius: 10px;
+border: 1px solid transparent;
+background-color: rgb(59, 134, 219);
+color: rgb(255, 255, 255);
+font-size: 15px;
+font-weight: bold;
+padding: 9px 20px;
+margin: 0 auto;
+text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+margin-left: 20px;
+}
+
+.btnscontainer{
+  
+  position: absolute;
+  bottom: 110px;
+  margin-left:30px
+  
+}
+
 .navbar {
     background-color: rgb(238, 248, 248);
     margin-top: -10;
@@ -88,6 +110,8 @@ body {
     position: relative;
     border-radius: 5px;
     margin-bottom: 20px;
+    box-shadow: 0 5px 5px rgba(8, 61, 236, 0.25),
+		0 5px 5px rgba(0, 0, 0, 0.22);
   }
   
   .card-description {

@@ -14,14 +14,14 @@
 </head>
 
 <body>
-    
-<div class="logoutnbtn">
-    <form action="/logout" method="post">
-        <button class="btnlog" type="submit">
-            <img class="iconbtn" src="/assets/logout.png" />
-        </button>
-    </form>
-</div>
+
+    <div class="logoutnbtn">
+        <form action="/logout" method="post">
+            <button class="btnlog" type="submit">
+                <img class="iconbtn" src="/assets/logout.png" />
+            </button>
+        </form>
+    </div>
 
 
     <div class="wrapper-grey padded">
@@ -29,17 +29,25 @@
             <h2 class="text-center">Os Meus Educandos</h2>
 
             <% alunos.forEach(function (aluno) { %>
-              <div class="col-xs-12 col-sm-4">
-                  <div class="card"
-                      style="background: linear-gradient(rgba(231, 208, 5, 0.3), rgba(233, 3, 3, 0.2))" onclick="window.location='/homepage/EE/<%= aluno.id %>/'" >
-                      <div class="card-description">
-                          <h2><%= aluno.nome_aluno %></h2>
-                      </div>
-                  </div>
-              </div>
-          <% }) %>
-            
-          </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="card"
+                        style="background: linear-gradient(rgba(49, 84, 238, 0.356), rgba(166, 179, 238, 0.356))"
+                        onclick="window.location='/homepage/EE/<%= aluno.id %>/'">
+                        <div class="btnscontainer">
+                            <button type="button" class="btnNewR">Relatórios</button>
+                            <button type="button" class="btnNewR">Mensagens</button>
+                        </div>
+                        <div class="card-description">
+                            <h2>
+                                <%= aluno.nome_aluno %>
+                            </h2>
+                        </div>
+
+                    </div>
+                </div>
+                <% }) %>
+
+        </div>
     </div>
 
 
