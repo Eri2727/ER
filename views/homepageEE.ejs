@@ -31,11 +31,12 @@
             <% alunos.forEach(function (aluno) { %>
                 <div class="col-xs-12 col-sm-4">
                     <div class="card"
-                        style="background: linear-gradient(rgba(49, 84, 238, 0.356), rgba(166, 179, 238, 0.356))"
-                        onclick="window.location='/homepage/EE/<%= aluno.id %>/'">
+                        style="background: linear-gradient(rgba(49, 84, 238, 0.356), rgba(166, 179, 238, 0.356))">
                         <div class="btnscontainer">
-                            <button type="button" class="btnNewR">Relatórios</button>
-                            <button type="button" class="btnNewR">Mensagens</button>
+                            <button type="button" class="btnNewR"
+                                onclick="window.location='/homepage/EE/<%= aluno.id %>/relatorios'">Relatórios</button>
+                            <button type="button" class="btnNewR"
+                                onclick="window.location='/homepage/EE/<%= aluno.id %>/mensagens'">Mensagens</button>
                         </div>
                         <div class="card-description">
                             <h2>
