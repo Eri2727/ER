@@ -173,15 +173,17 @@ router.get('/D/:turma/alunos', async function (req, res, next) {
 router.get('/D/:turma/:aluno/relatorios', async function (req, res, next) {
     if (req.session.cookie.secure == true && req.session.cookie.type == 'docente') {
         let aluno_nome = '';
+        let aluno_turma = '';
 
         await buscaAlunoX(req.params.aluno).then(aluno => { //await necessario para o nome carregar sempre mesmo que o utilizador nao retorne para tras da forma correta
             aluno_nome = aluno[0].nome_aluno;
+            aluno_turma = aluno[0].turma;
             console.log(aluno_nome);
         });
 
         buscaRelatoriosDoAlunoX(req.params.aluno).then(relatorios => {
             //console.log(relatorios);
-            res.render('relatorios', { title: 'Relatórios', relatorios: relatorios, aluno: aluno_nome });
+            res.render('relatorios', { title: 'Relatórios', relatorios: relatorios, aluno: aluno_nome, aluno_turma: aluno_turma });
         });
     } else {
         res.redirect('/');
