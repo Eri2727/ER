@@ -10,9 +10,6 @@ img{ max-width:100%;}
   border: 1px solid #c4c4c4;
   clear: both;
   overflow: hidden;
-  -webkit-box-shadow: 0px 15px 51px -15px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 15px 51px -15px rgba(0,0,0,0.75);
-  box-shadow: 0px 15px 51px -15px rgba(0,0,0,0.75);
 }
 .top_spac{ margin: 20px 0 0;}
 
@@ -92,7 +89,7 @@ img{ max-width:100%;}
 .mesgs {
   float: left;
   padding: 30px 15px 0 25px;
-  width: 100%;
+  width: 60%;
 }
 
  .sent_msg p {
@@ -136,6 +133,3 @@ img{ max-width:100%;}
   height: 516px;
   overflow-y: auto;
 }
-
-
-

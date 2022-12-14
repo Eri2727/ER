@@ -15,7 +15,9 @@
     cursor: pointer;
 
 }
-
+.text-center{
+  font-family: 'Montserrat', sans-serif;
+}
 
 .logoutbtn {
 
@@ -85,6 +87,7 @@ body {
   }
   .wrapper-grey {
     background: #F4F4F4;
+    
   }
 
 

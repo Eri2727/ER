@@ -2,68 +2,67 @@
 
 
 
-.btnNewR{
+.btnNewR {
   border-radius: 10px;
-border: 1px solid transparent;
-background-color: rgb(59, 134, 219);
-color: rgb(255, 255, 255);
-font-size: 15px;
-font-weight: bold;
-padding: 9px 20px;
-margin: 0 auto;
-text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-margin-left: 20px;
+  border: 1px solid transparent;
+  background-color: rgb(59, 134, 219);
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  font-weight: bold;
+  padding: 9px 20px;
+  margin: 0 auto;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  margin-left: 20px;
 }
 
-.btnscontainer{
-  
+.btnscontainer {
+
   position: absolute;
   bottom: 110px;
-  margin-left:30px
-  
+  margin-left: 30px
 }
 
 .navbar {
-    background-color: rgb(238, 248, 248);
-    margin-top: -10;
-    margin-left: -10;
-    margin-right: -8;
+  background-color: rgb(238, 248, 248);
+  margin-top: -10;
+  margin-left: -10;
+  margin-right: -8;
 
 }
 
 .iconbtn {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 
 }
 
 
 .logoutbtn {
 
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 
 }
 
 .btnlog {
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    border: none;
-    background: rgb(222, 230, 235);
-    border-radius: 10%;
-    margin-top: 5px;
-    margin-left: 95%;
-    margin-bottom: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: rgb(222, 230, 235);
+  border-radius: 10%;
+  margin-top: 5px;
+  margin-left: 95%;
+  margin-bottom: 5px;
 
 }
 
 
 .classesText {
-    margin-right: 60%;
-    font-family: Helvetica ;
+  margin-right: 60%;
+  font-family: Helvetica;
 }
 
 
@@ -72,68 +71,83 @@ margin-left: 20px;
 
 .classesContainer {
 
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    margin-bottom: 20px;
-   
-    margin: 0 auto;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  margin-bottom: 20px;
+
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.text-center{
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
-    margin: 0;
-    font-family: Open-sans, sans-serif;
-  }
-  h1, h2, h3 {
-    font-family: Raleway, Helvetica, sans-serif;
-  }
-  h2 {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 30px;
-    margin-top: 0;
-  }
-  .padded {
-    padding: 100px 0;
-  }
-  .wrapper-grey {
-    background: #F4F4F4;
-  }
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  margin-top: 0;
+  font-family: Montserrat;
+}
+
+.padded {
+  padding: 100px 0;
+}
+
+.wrapper-grey {
+  background: #F4F4F4;
+}
 
 
-  .card {
-    height: 250px;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-    background-size: cover !important;
-    color: white;
-    position: relative;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    box-shadow: 0 5px 5px rgba(8, 61, 236, 0.25),
-		0 5px 5px rgba(0, 0, 0, 0.22);
-  }
-  
-  .card-description {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-  }
-  .card-description h2 {
-    font-size: 22px;
-  }
-  .card-description p {
-    font-size: 15px;
-  }
+.card {
+  height: 250px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  background-size: cover !important;
+  color: white;
+  position: relative;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 5px rgba(8, 61, 236, 0.25),
+    0 5px 5px rgba(0, 0, 0, 0.22);
+}
 
-  .features img {
-    width: 100px;
-  }
-  .features h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  .features p {
-    font-size: 15px;
-    font-weight: lighter;
-  }
+.card-description {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.card-description h2 {
+  font-size: 22px;
+}
+
+.card-description p {
+  font-size: 15px;
+}
+
+.features img {
+  width: 100px;
+}
+
+.features h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.features p {
+  font-size: 15px;
+  font-weight: lighter;
+}
