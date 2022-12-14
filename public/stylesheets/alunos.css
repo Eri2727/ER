@@ -58,7 +58,7 @@
 .btnNewR{
     border-radius: 20px;
 	border: 1px solid transparent;
-	background-color: #3d5dc7;
+	background-color: #0a67a5;
 	color: #f6f5f7;
 	font-size: 15px;
 	font-weight: bold;
@@ -74,7 +74,6 @@
     justify-content: space-between;
     padding: 0 10px;
     background-color: #242475;
-    border: 0.5px solid  #0d2c92;
     align-items: center;
 }
 
