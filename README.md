@@ -1,6 +1,7 @@
 # ER
 
 ## Don't forget que é necessário dar npm i para ter as dependências e o programa funcionar.
+## npm run devstart para iniciar o programa
 
 ### No caso de quererem modificar a base de dados [SQLBrowser](https://sqlitebrowser.org/).
 
