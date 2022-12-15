@@ -301,9 +301,12 @@ router.get('/EE/:aluno/relatorios/:id_relatorio', async function (req, res, next
 
 router.get('/EE/:aluno/mensagens', function (req, res, next) {
     if (req.session.cookie.secure == true && req.session.cookie.type == 'encarregado') {
+        
+        let aluno_id = req.params.aluno;
+        console.log(aluno_id);
 
         buscaDocentesDaTurma(req.params.aluno).then(docentes => {
-            res.render('mensagensEE', { title: 'Mensagens', docentes: docentes});
+            res.render('mensagensEE', { title: 'Mensagens', docentes: docentes , aluno_id: aluno_id});
         });
         
     } else {
@@ -315,6 +318,8 @@ router.get('/EE/:aluno/mensagens/:id_docente', function (req, res, next) {
     if (req.session.cookie.secure == true && req.session.cookie.type == 'encarregado') {
         
         let docentesList = [];
+        let aluno_id = req.params.aluno;
+        console.log(aluno_id);
 
         /* buscaDocentesDaTurma(req.params.aluno).then(docentes => {
             mensagensList = buscaMensagensNaDb(req.params.aluno, req.params.id_docente);
@@ -333,7 +338,7 @@ router.get('/EE/:aluno/mensagens/:id_docente', function (req, res, next) {
                 console.log(mensagens);
                 console.log(docentesList);
                 setTimeout(() => {
-                    res.render('mensagensEE-ID', { title: 'Mensagens', docentesList: docentesList, mensagens : mensagens});
+                    res.render('mensagensEE-ID', { title: 'Mensagens', docentesList: docentesList, mensagens : mensagens, aluno_id: aluno_id});
                   }, "100");
             }));
     } else {

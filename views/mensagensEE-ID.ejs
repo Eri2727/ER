@@ -45,7 +45,7 @@
 				<div class="inbox_chat ">
 					<% docentesList.forEach(function (docente) { %>
 						<div class="chat_list active_chat"
-							onclick="window.location='http://localhost:3000/homepage/EE/1/mensagens' + '/<%= docente.docente_id%>'">
+							onclick="window.location='http://localhost:3000/homepage/EE/' + '<%= aluno_id%>' + '/mensagens' + '/<%= docente.docente_id%>'">
 							<div class="chat_people">
 								<div class="chat_ib target">
 									<h5>
